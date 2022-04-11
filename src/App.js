@@ -1,39 +1,36 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import BarChart from "./components/BarChart";
 import LineChart from "./components/LineChart";
 import PieChart from "./components/PieChart";
+import Button from './components/UI/Button';
+import { Chart } from "chart.js";
 // import { UserData } from "./Data";
 
 const UserData = [
   {
     id: 1,
     turma: "1ºs anos",
-    userGain: 60,
-    userLost: 0,
+    nota: 60,
   },
   {
     id: 2,
     turma: "2ºs anos",
-    userGain: 55,
-    userLost: 0,
+    nota: 55,
   },
   {
     id: 3,
     turma: "3ºs anos",
-    userGain: 70,
-    userLost: 0,
+    nota: 70,
   },
   {
     id: 4,
     turma: "4ºs anos",
-    userGain: 68,
-    userLost: 0,
+    nota: 68,
   },
   {
     id: 5,
     turma: "5ºs anos",
-    userGain: 30,
-    userLost: 0,
+    nota: 30,
   },
 ];
 
@@ -42,24 +39,46 @@ function App() {
     labels: UserData.map((item) => item.turma),
     datasets: [
       {
-        label: 'hide',
-        data: UserData.map((data) => data.userGain),
+        label: 'nota',
+        data: UserData.map((data) => data.nota),
         backgroundColor: UserData.map((data) => {
-          if (data.userGain < 70) {
-            if (data.userGain < 50) {
-              return "#ff0000";
+          if (data.nota < 70) {
+            if (data.nota < 50) {
+              return "#e7402d";
             } else {
-              return "#ffff00";
+              return "#fdc719";
             }
           } else {
-            return "#00ff00";
+            return "#75b52b";
           }
         }),
         borderColor: "black",
-        borderWidth: 2,
+        borderWidth: 1,
       },
     ],
   });
+
+  const chartRef = useRef(null);
+
+  const handleSaveChart = () => {
+    // const options = {    
+    //   plugins: {
+    //     legend: {
+    //       display: false,
+    //     }
+    //   },
+    //   scales: {
+    //     xAxes: [{ticks: {mirror: true}}],
+    //     yAxes: [{ticks: {mirror: true}}],
+    //   },
+    // };
+    // const base64Image = chartRef.current.chartInstance.toBase64Image();
+    // const base64Image = chartRef.current.chartData.base64Image();
+    console.log(chartRef);
+    // const base64Image = chartRef.current.base64Image();
+    // console.log(base64Image);
+
+  }
 
   // IF YOU SEE THIS COMMENT: I HAVE GOOD EYESIGHT
 
@@ -67,6 +86,7 @@ function App() {
     <div className="App">
       <div style={{ width: 700 }}>
         <BarChart chartData={userData} />
+        {/* <LineChart /> */}
       </div>
       {/* <div style={{ width: 700 }}>
         <LineChart chartData={userData} />
