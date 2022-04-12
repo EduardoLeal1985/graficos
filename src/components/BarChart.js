@@ -1,9 +1,11 @@
 import React, { useRef, useCallback } from "react";
 import { Bar } from "react-chartjs-2";
+import ChartDataLabels from "chartjs-plugin-datalabels";
 // import { Chart as ChartJS } from "chart.js/auto";
 // import { Chart } from 'chart.js';
 import Chart from 'chart.js/auto';
 import { CategoryScale } from "chart.js";
+import useApi from "../hooks/useApi";
 
 Chart.register(CategoryScale);
 
@@ -12,12 +14,25 @@ function BarChart({ chartData }) {
 
   const downloadImage = useCallback(() => {
     const objB64 = ref.current.toBase64Image();
-    const link = document.createElement("a");
-    console.log(objB64);
-    link.download = "chart.png";
-    link.href = ref.current.toBase64Image();
-    link.click();
+    const dataObject = {
+      data: objB64,
+    }
+    enviaGrafico({
+      data: dataObject,
+    });
   }, []);
+
+
+  const [enviaGrafico, enviaGraficoInfo] = useApi({
+    debounceDelay: 0,
+    url: "/",
+    method: "post",
+    onCompleted: (response) => {
+      if (!response.error) {
+        console.log(response.data);
+      }
+    },
+  });
 
   const options = {    
     plugins: {
@@ -26,9 +41,13 @@ function BarChart({ chartData }) {
       }
     },
     scales: {
-      xAxes: [{ticks: {mirror: true}}],
-      yAxes: [{ticks: {mirror: true}}],
-    },
+      y:
+      {
+        min: 0,
+        max: 100,
+        stepSize: 10,
+      },
+    }
   };
 
   // return <Bar 
@@ -41,7 +60,7 @@ function BarChart({ chartData }) {
     <div>
       <button type="button" onClick={downloadImage}>Download</button>
       <div>
-        <Bar ref={ref} data={chartData} options={options} />
+        <Bar ref={ref} data={chartData} options={options} plugins={[ChartDataLabels]} />
       </div>
     </div>
   );

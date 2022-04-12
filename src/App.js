@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import BarChart from "./components/BarChart";
 import LineChart from "./components/LineChart";
 import PieChart from "./components/PieChart";
@@ -54,31 +54,14 @@ function App() {
         }),
         borderColor: "black",
         borderWidth: 1,
-      },
+        datalabels: {
+          color: "black",
+          anchor: "end",
+          align: "top"
+        }
+      }
     ],
   });
-
-  const chartRef = useRef(null);
-
-  const handleSaveChart = () => {
-    // const options = {    
-    //   plugins: {
-    //     legend: {
-    //       display: false,
-    //     }
-    //   },
-    //   scales: {
-    //     xAxes: [{ticks: {mirror: true}}],
-    //     yAxes: [{ticks: {mirror: true}}],
-    //   },
-    // };
-    // const base64Image = chartRef.current.chartInstance.toBase64Image();
-    // const base64Image = chartRef.current.chartData.base64Image();
-    console.log(chartRef);
-    // const base64Image = chartRef.current.base64Image();
-    // console.log(base64Image);
-
-  }
 
   // IF YOU SEE THIS COMMENT: I HAVE GOOD EYESIGHT
 
@@ -86,7 +69,6 @@ function App() {
     <div className="App">
       <div style={{ width: 700 }}>
         <BarChart chartData={userData} />
-        {/* <LineChart /> */}
       </div>
       {/* <div style={{ width: 700 }}>
         <LineChart chartData={userData} />
