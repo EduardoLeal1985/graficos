@@ -34,19 +34,21 @@ function QuestionsChart({ chartData }) {
     },
   });
 
-  const options = {    
+  const options = { 
+    maintainAspectRatio: false,   
     plugins: {
       legend: {
         display: false,
-      }
+      },
     },
+    xAxes: [{ticks: {mirror: true}}],
     scales: {
       y:
       {
         min: 0,
         max: 22,
         stepSize: 2,
-      },
+      }
     }
   };
 

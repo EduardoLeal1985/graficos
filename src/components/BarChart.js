@@ -38,7 +38,8 @@ function BarChart({ chartData }) {
     plugins: {
       legend: {
         display: false,
-      }
+      },
+      text:"REDE",
     },
     scales: {
       y:
