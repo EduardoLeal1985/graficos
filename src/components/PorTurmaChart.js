@@ -9,18 +9,17 @@ import useApi from "../hooks/useApi";
 
 Chart.register(CategoryScale);
 
-function PorTurmaChart({ chartData, escola }) {
+function PorTurmaChart({ chartData, chartData2, chartData3, chartData4, chartData5, escola }) {
   let ref = useRef([]);
 
-  // console.log(escola);
-  console.log(chartData);
+console.log(chartData);
 
   const downloadImage = useCallback(() => {
     ref.current.map((item, key)=>{
       const objB64 = item.toBase64Image();
       const dataObject = {
         data: objB64,
-        filename: `grafico01_${key+1}anos.png`,
+        filename: `${escola}grafico02_${key+1}anos.png`,
       }
       enviaGrafico({
         data: dataObject,
@@ -90,45 +89,50 @@ function PorTurmaChart({ chartData, escola }) {
   //   options={options}
   //   ref={ref}
   // />;
+  const vetorpadrao = [0,1,2,3,4];
+  const options = [];
 
-  const options = {    
-        maintainAspectRatio: false,
-        plugins: {
-          title: {
-            display: true,
-            text: `1º ANOS - LINGUAGENS`,
-            padding: {
-                top: 10,
-                bottom: 15
-            },
-            font: {
-              weight: 'bold',
-              size: 16,
-            }
-        },
-          legend: {
-            display: true,
+  vetorpadrao.map((item, key) => {
+    options[key] = {    
+      maintainAspectRatio: false,
+      plugins: {
+        title: {
+          display: true,
+          text: `${key+1}º ANOS`,
+          padding: {
+              top: 10,
+              bottom: 15
           },
-          datalabels: {
-            color: '#000',
-            formatter: function (value) {
-              return value + '%';
-            },
-            font: {
-              weight: 'bold',
-              size: 10,
-            }
+          font: {
+            weight: 'bold',
+            size: 16,
           }
+      },
+        legend: {
+          display: true,
         },
-        scales: {
-          y:
-          {
-            min: 0,
-            max: 100,
-            stepSize: 10,
+        datalabels: {
+          color: '#000',
+          formatter: function (value) {
+            return value + '%';
           },
+          font: {
+            weight: 'bold',
+            size: 10,
+          }
         }
-      };
+      },
+      scales: {
+        y:
+        {
+          min: 0,
+          max: 100,
+          stepSize: 10,
+        },
+      }
+    };
+  });
+  
 
       // const objPorTurma = {
       //   labels: ['REDE', '1A', '1B', '1C'],
@@ -148,69 +152,36 @@ function PorTurmaChart({ chartData, escola }) {
       //   ]
       // };
 
-      // const objPorTurma = {
-      //   labels: ['LINGUAGENS', 'MATEMÁTICA'],
-      //   datasets: [
-      //     {
-      //       label: 'REDE',
-      //       data: [59.2,50.9],
-      //       backgroundColor: ['#7F7F7F', '#7F7F7F'],
-      //       borderColor: "black",
-      //       borderWidth: 1,
-      //       datalabels: {
-      //         color: "black",
-      //         anchor: "end",
-      //         align: "top"
-      //       }
-      //     },
-      //     {
-      //       label: '1º A',
-      //       data: [60.9,56.5],
-      //       backgroundColor: ['#5B9BD5', '#5B9BD5'],
-      //       borderColor: "black",
-      //       borderWidth: 1,
-      //       datalabels: {
-      //         color: "black",
-      //         anchor: "end",
-      //         align: "top"
-      //       }
-      //     },
-      //     {
-      //       label: '1º B',
-      //       data: [65,60.1],
-      //       backgroundColor: ['#ED7D31', '#ED7D31'],
-      //       borderColor: "black",
-      //       borderWidth: 1,
-      //       datalabels: {
-      //         color: "black",
-      //         anchor: "end",
-      //         align: "top"
-      //       }
-      //     },
-      //     {
-      //       label: '1º C',
-      //       data: [59.1,53.8],
-      //       backgroundColor: ['#E763D7', '#E763D7'],
-      //       borderColor: "black",
-      //       borderWidth: 1,
-      //       datalabels: {
-      //         color: "black",
-      //         anchor: "end",
-      //         align: "top"
-      //       }
-      //     }
-      //   ]
-      // };
+      const objPorTurma = {
+        labels: ['LINGUAGENS', 'MATEMÁTICA'],
+        datasets: chartData,
+      };
+      const objPorTurma2 = {
+        labels: ['LINGUAGENS', 'MATEMÁTICA'],
+        datasets: chartData2,
+      };
+      const objPorTurma3 = {
+        labels: ['LINGUAGENS', 'MATEMÁTICA'],
+        datasets: chartData3,
+      };
+      const objPorTurma4 = {
+        labels: ['LINGUAGENS', 'MATEMÁTICA'],
+        datasets: chartData4,
+      };
+      const objPorTurma5 = {
+        labels: ['LINGUAGENS', 'MATEMÁTICA'],
+        datasets: chartData5,
+      };
 
   return (
     <div>
       <button type="button" onClick={downloadImage}>Download</button>
       <div class="chart-container" style={{"position": "relative", "height":"360px", "width":"800px"}}>
-        <Bar ref={el => (ref.current[0] = el)} data={chartData[0]} options={options} plugins={[ChartDataLabels]} />
-        <Bar ref={el => (ref.current[1] = el)} data={chartData[1]} options={options} plugins={[ChartDataLabels]} />
-        <Bar ref={el => (ref.current[2] = el)} data={chartData[2]} options={options} plugins={[ChartDataLabels]} />
-        <Bar ref={el => (ref.current[3] = el)} data={chartData[3]} options={options} plugins={[ChartDataLabels]} />
-        <Bar ref={el => (ref.current[4] = el)} data={chartData[4]} options={options} plugins={[ChartDataLabels]} />
+        <Bar ref={el => (ref.current[0] = el)} data={objPorTurma} options={options[0]} plugins={[ChartDataLabels]} />
+        <Bar ref={el => (ref.current[1] = el)} data={objPorTurma2} options={options[1]} plugins={[ChartDataLabels]} />
+        <Bar ref={el => (ref.current[2] = el)} data={objPorTurma3} options={options[2]} plugins={[ChartDataLabels]} />
+        <Bar ref={el => (ref.current[3] = el)} data={objPorTurma4} options={options[3]} plugins={[ChartDataLabels]} /> 
+        <Bar ref={el => (ref.current[4] = el)} data={objPorTurma5} options={options[4]} plugins={[ChartDataLabels]} />
       </div>
     </div>
   );

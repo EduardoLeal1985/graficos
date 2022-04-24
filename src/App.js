@@ -18,7 +18,33 @@ const colorArray = [
   "#ED7D31",
   "#70AD47",
   "#7030A0"
-]
+];
+
+let rotulo = [];
+let notasLinguagem = [];
+let notasMatematica = [];
+let notasArte = [];
+let notasEdFisica = [];
+let rotulo2 = [];
+let notasLinguagem2 = [];
+let notasMatematica2 = [];
+let notasArte2 = [];
+let notasEdFisica2 = [];
+let rotulo3 = [];
+let notasLinguagem3 = [];
+let notasMatematica3 = [];
+let notasArte3 = [];
+let notasEdFisica3 = [];
+let rotulo4 = [];
+let notasLinguagem4 = [];
+let notasMatematica4 = [];
+let notasArte4 = [];
+let notasEdFisica4 = [];
+let rotulo5 = [];
+let notasLinguagem5 = [];
+let notasMatematica5 = [];
+let notasArte5 = [];
+let notasEdFisica5 = [];
 
 function App() {
   const [dadosGraficos, setDadosGraficos] = useState();
@@ -134,6 +160,10 @@ const [userData, setUserData] = useState();
   const [chartEdFisica, setChartEdFisica] = useState([]);
   // const [porAno, setPorAno] = useState();
   const [porTurma, setPorTurma] = useState();
+  const [porTurma2, setPorTurma2] = useState();
+  const [porTurma3, setPorTurma3] = useState();
+  const [porTurma4, setPorTurma4] = useState();
+  const [porTurma5, setPorTurma5] = useState();
 
   const [graficosEscola, graficosEscolaInfo] = useApi({
     debounceDelay:0,
@@ -331,33 +361,235 @@ const [userData, setUserData] = useState();
     setUserData(obj);
 
     // gráfico por turma - 02
-    // const turmaColors = [
-    //   '#7F7F7F',
-    //   '#5B9BD5',
-    //   '#ED7D31',
-    //   '#E763D7'
-    // ]
-    // const dgTurma = [];
-    // const dataSetsPorTurma = [];
-    // const dataSetsPorTurma2 = [];
-    // const dataSetsPorTurma3 = [];
-    // const dataSetsPorTurma4 = [];
-    // const dataSetsPorTurma5 = [];
+    const turmaColors = [
+      '#7F7F7F',
+      '#5B9BD5',
+      '#ED7D31',
+      '#E763D7',
+      '#FFC000',
+      '#4472C4',
+      '#70AD47',
+      '#255E91',
+      '#9E480E',
+      '#8612B4',
+      '#A2F731',
+      '#B493B7',
+      '#232D24'
 
-    // dadosGraficos?.porTurma.a1.escola.linguagens.map((item,key)=>{
-    //   dataSetsPorTurma[key] = {
-    //     label: item.turma,
-    //     data: [dadosGraficos?.porTurma.a1.escola.linguagens[key].nota,dadosGraficos?.porTurma.a1.escola.matematica[key].nota],
-    //     backgroundColor: [turmaColors[key], turmaColors[key]],
-    //     borderColor: "black",
-    //     borderWidth: 1,
-    //     datalabels: {
-    //       color: "black",
-    //       anchor: "end",
-    //       align: "top"
-    //     }
-    //   };
-    // });
+    ]
+    // const dgTurma = [];
+    const dataSetsPorTurma = [];
+    const dataSetsPorTurma2 = [];
+    const dataSetsPorTurma3 = [];
+    const dataSetsPorTurma4 = [];
+    const dataSetsPorTurma5 = [];
+// console.log(dadosGraficos?.porTurma.a1.escola);
+      
+    dadosGraficos?.porTurma.a1.escola[0].linguagens.map((i,k)=>{
+      rotulo[k] = i.turma;
+      notasLinguagem[k] = i.nota;
+    });
+    dadosGraficos?.porTurma.a1.escola[1].matematica.map((i,k)=>{
+      notasMatematica[k] = i.nota;
+    });
+    dadosGraficos?.porTurma.a1.escola[2].arte.map((i,k)=>{
+      notasArte[k] = i.nota;
+    });    
+    dadosGraficos?.porTurma.a1.escola[3].edFisica.map((i,k)=>{
+      notasEdFisica[k] = i.nota;
+    });
+
+      rotulo.map((item,key)=>{
+        dataSetsPorTurma[key] =  {
+            label: item,
+            data: [notasLinguagem[key],notasMatematica[key]],
+            backgroundColor: [turmaColors[key], turmaColors[key]],
+            borderColor: "black",
+            borderWidth: 1,
+            datalabels: {
+              color: "black",
+              anchor: "end",
+              align: "top"
+            }
+          }
+      });
+
+// 2 ANO
+      // let rotulo2 = [];
+      // let notasLinguagem2 = [];
+      // let notasMatematica2 = [];
+      // let notasArte2 = [];
+      // let notasEdFisica2 = [];
+    dadosGraficos?.porTurma.a2.escola[0].linguagens.map((a,q)=>{
+      rotulo2[q] = a.turma;
+      notasLinguagem2[q] = a.nota;
+    });
+    dadosGraficos?.porTurma.a2.escola[1].matematica.map((a,q)=>{
+      notasMatematica2[q] = a.nota;
+    });
+    dadosGraficos?.porTurma.a2.escola[2].arte.map((a,q)=>{
+      notasArte2[q] = a.nota;
+    });    
+    dadosGraficos?.porTurma.a2.escola[3].edFisica.map((a,q)=>{
+      notasEdFisica2[q] = a.nota;
+    });
+    console.log(notasLinguagem2);
+
+      rotulo2.map((item,key)=>{
+        dataSetsPorTurma2[key] =  {
+            label: item,
+            data: [notasLinguagem2[key],notasMatematica2[key]],
+            backgroundColor: [turmaColors[key], turmaColors[key]],
+            borderColor: "black",
+            borderWidth: 1,
+            datalabels: {
+              color: "black",
+              anchor: "end",
+              align: "top"
+            }
+        }
+      });
+
+      // 3 ANO
+      // let rotulo3 = [];
+      // let notasLinguagem3 = [];
+      // let notasMatematica3 = [];
+      // let notasArte3 = [];
+      // let notasEdFisica3 = [];
+    dadosGraficos?.porTurma.a3.escola[0].linguagens.map((i,k)=>{
+      rotulo3[k] = i.turma;
+      notasLinguagem3[k] = i.nota;
+    });
+    dadosGraficos?.porTurma.a3.escola[1].matematica.map((i,k)=>{
+      notasMatematica3[k] = i.nota;
+    });
+    dadosGraficos?.porTurma.a3.escola[2].arte.map((i,k)=>{
+      notasArte3[k] = i.nota;
+    });    
+    dadosGraficos?.porTurma.a3.escola[3].edFisica.map((i,k)=>{
+      notasEdFisica3[k] = i.nota;
+    });
+
+      rotulo3.map((item,key)=>{
+        dataSetsPorTurma3[key] =  {
+            label: item,
+            data: [notasLinguagem3[key],notasMatematica3[key]],
+            backgroundColor: [turmaColors[key], turmaColors[key]],
+            borderColor: "black",
+            borderWidth: 1,
+            datalabels: {
+              color: "black",
+              anchor: "end",
+              align: "top"
+            }
+          }
+      });
+
+      // 4 ANOS 
+      // let rotulo4 = [];
+      // let notasLinguagem4 = [];
+      // let notasMatematica4 = [];
+      // let notasArte4 = [];
+      // let notasEdFisica4 = [];
+    dadosGraficos?.porTurma.a4.escola[0].linguagens.map((i,k)=>{
+      rotulo4[k] = i.turma;
+      notasLinguagem4[k] = i.nota;
+    });
+    dadosGraficos?.porTurma.a4.escola[1].matematica.map((i,k)=>{
+      notasMatematica4[k] = i.nota;
+    });
+    dadosGraficos?.porTurma.a4.escola[2].arte.map((i,k)=>{
+      notasArte4[k] = i.nota;
+    });    
+    dadosGraficos?.porTurma.a4.escola[3].edFisica.map((i,k)=>{
+      notasEdFisica4[k] = i.nota;
+    });
+
+      rotulo4.map((item,key)=>{
+        dataSetsPorTurma4[key] =  {
+            label: item,
+            data: [notasLinguagem4[key],notasMatematica4[key]],
+            backgroundColor: [turmaColors[key], turmaColors[key]],
+            borderColor: "black",
+            borderWidth: 1,
+            datalabels: {
+              color: "black",
+              anchor: "end",
+              align: "top"
+            }
+          }
+      });
+
+// 5 ANOS
+      // let rotulo5 = [];
+      // let notasLinguagem5 = [];
+      // let notasMatematica5 = [];
+      // let notasArte5 = [];
+      // let notasEdFisica5 = [];
+    dadosGraficos?.porTurma.a5.escola[0].linguagens.map((i,k)=>{
+      rotulo5[k] = i.turma;
+      notasLinguagem5[k] = i.nota;
+    });
+    dadosGraficos?.porTurma.a5.escola[1].matematica.map((i,k)=>{
+      notasMatematica5[k] = i.nota;
+    });
+    dadosGraficos?.porTurma.a5.escola[2].arte.map((i,k)=>{
+      notasArte5[k] = i.nota;
+    });    
+    dadosGraficos?.porTurma.a5.escola[3].edFisica.map((i,k)=>{
+      notasEdFisica5[k] = i.nota;
+    });
+
+      rotulo5.map((item,key)=>{
+        dataSetsPorTurma5[key] = {
+            label: item,
+            data: [notasLinguagem5[key],notasMatematica5[key]],
+            backgroundColor: [turmaColors[key], turmaColors[key]],
+            borderColor: "black",
+            borderWidth: 1,
+            datalabels: {
+              color: "black",
+              anchor: "end",
+              align: "top"
+            }
+          }
+      });
+      
+      // item.matematica.map((i,k)=>{
+      //   notasMatematica[k]=i.nota;     
+      // });
+      // item.arte.map((i,k)=>{
+      //   notasArte[k]=i.nota;     
+      // });
+      // item.edFisica.map((i,k)=>{
+      //   notasEdFisica[k]=i.nota;     
+      // });
+      // console.log(rotulo);
+      // console.log(notasLinguagem);
+      // console.log(notasMatematica);
+      // console.log(notasArte);
+      // console.log(notasEdFisica);
+      
+      
+      // dataSetsPorTurma[key] = {
+      //   label: item.linguagens[0].turma,
+      //   data: [1,2,3],
+      //   backgroundColor: [turmaColors[key], turmaColors[key]],
+      //   borderColor: "black",
+      //   borderWidth: 1,
+      //   datalabels: {
+      //     color: "black",
+      //     anchor: "end",
+      //     align: "top"
+      //   }
+      // };
+    
+
+    setPorTurma(dataSetsPorTurma);
+    setPorTurma2(dataSetsPorTurma2);
+    setPorTurma3(dataSetsPorTurma3);
+    setPorTurma4(dataSetsPorTurma4);
+    setPorTurma5(dataSetsPorTurma5);
 
     // dadosGraficos?.porTurma.a2.escola.linguagens.map((item,key)=>{
     //   dataSetsPorTurma[key] = {
@@ -1085,21 +1317,18 @@ setChartEdFisica(tempEdF);
   return (
     <div className="App">
       <div style={{ width: 900, height:'100%' }}>   
-      {/* DESCOMENTAR PARA O GRÁFICO 1 */}
+      {/* DESCOMENTAR PARA O GRÁFICO 1 - POR ANO */}
       {/* {userData && <BarChart chartData={userData} escola={escola} />}      */}
         
-        {/* <BarChart chartData={userData} escola={escola} outro={porAno?.a2}/>
-        <BarChart chartData={userData} escola={escola} outro={porAno?.a3}/>
-        <BarChart chartData={userData} escola={escola} outro={porAno?.a4}/>
-        <BarChart chartData={userData} escola={escola} outro={porAno?.a5}/> */}
-        {/* {porTurma && <PorTurmaChart chartData={porTurma} />} */}
+        {/* DESCOMENTAR ABAIXO PARA O GRÁFICO 2 - POR TURMA */}
+        {porTurma && <PorTurmaChart chartData={porTurma} chartData2={porTurma2} chartData3={porTurma3} chartData4={porTurma4}  chartData5={porTurma5} escola={escola} />}
       </div>
       <div style={{ width: 900 }}>
-        {/* DESCOMENTAR ABAIXO GRÁFICO 3 */}
-        {chartLinguagens && <QuestionsChart chartData={chartLinguagens} chartData2={chartLinguagens2} turmas={turmasArray} escola={escola} />}
-        {chartMatematica && <QuestionsChartMat chartData={chartMatematica} chartData2={chartMatematica2} turmas={turmasArray} escola={escola} />}
-        {chartArte && <QuestionsChartArt chartData={chartArte} turmas={turmasArray} escola={escola} />}
-        {chartEdFisica && <QuestionsChartEdF chartData={chartEdFisica} turmas={turmasArray} escola={escola} />}
+        {/* DESCOMENTAR ABAIXO GRÁFICO 3 - POR QUESTÃO */}
+        {/* {chartLinguagens && <QuestionsChart chartData={chartLinguagens} chartData2={chartLinguagens2} turmas={turmasArray} escola={escola} />} */}
+        {/* {chartMatematica && <QuestionsChartMat chartData={chartMatematica} chartData2={chartMatematica2} turmas={turmasArray} escola={escola} />} */}
+        {/* {chartArte && <QuestionsChartArt chartData={chartArte} turmas={turmasArray} escola={escola} />} */}
+        {/* {chartEdFisica && <QuestionsChartEdF chartData={chartEdFisica} turmas={turmasArray} escola={escola} />} */}
         
       </div>
       {/* <div style={{ width: 700 }}>

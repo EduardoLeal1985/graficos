@@ -20,7 +20,7 @@ function BarChart({ chartData, escola }) {
       const objB64 = item.toBase64Image();
       const dataObject = {
         data: objB64,
-        filename: `grafico01_${key+1}anos.png`,
+        filename: `${escola}grafico01_${key+1}anos.png`,
       }
       enviaGrafico({
         data: dataObject,
