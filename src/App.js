@@ -4,6 +4,7 @@ import LineChart from "./components/LineChart";
 import PieChart from "./components/PieChart";
 import Button from './components/UI/Button';
 import QuestionsChart from "./components/QuestionsChart";
+import QuestionsChartMat from "./components/QuestionsChartMat";
 import { Chart } from "chart.js";
 import useApi from "./hooks/useApi";
 import { UserData } from "./Data";
@@ -19,6 +20,7 @@ const colorArray = [
 function App() {
   const [dadosGraficos, setDadosGraficos] = useState();
   const [dadosUsuarios, setDadosUsuarios] = useState();
+  const [turmasArray, setTurmasArray] = useState();
 
   // const dataGraficos = [
   //     {
@@ -53,17 +55,17 @@ const [userData, setUserData] = useState();
   //     {
   //       label: 'UNIDADE',
   //       data: dataGraficos?.map((data) => data.nota),
-  //       // backgroundColor: UserData.map((data) => {
-  //       //   if (data.nota < 70) {
-  //       //     if (data.nota < 50) {
-  //       //       return "#e7402d";
-  //       //     } else {
-  //       //       return "#fdc719";
-  //       //     }
-  //       //   } else {
-  //       //     return "#75b52b";
-  //       //   }
-  //       // }),
+        // backgroundColor: UserData.map((data) => {
+        //   if (data.nota < 70) {
+        //     if (data.nota < 50) {
+        //       return "#e7402d";
+        //     } else {
+        //       return "#fdc719";
+        //     }
+        //   } else {
+        //     return "#75b52b";
+        //   }
+        // }),
   //       backgroundColor: "#5B9BD5",
   //       borderColor: "black",
   //       borderWidth: 1,
@@ -122,9 +124,11 @@ const [userData, setUserData] = useState();
 
   const [escola, setEscola] = useState();
   const [chartLinguagens, setChartLinguagens] = useState([]);
-  const [chartMatematica, setChartMatematica] = useState();
-  const [chartArte, setChartArte] = useState();
-  const [chartEdFisica, setChartEdFisica] = useState();
+  const [chartLinguagens2, setChartLinguagens2] = useState([]);
+  const [chartMatematica, setChartMatematica] = useState([]);
+  const [chartMatematica2, setChartMatematica2] = useState([]);
+  const [chartArte, setChartArte] = useState([]);
+  const [chartEdFisica, setChartEdFisica] = useState([]);
   // const [porAno, setPorAno] = useState();
 
   const [graficosEscola, graficosEscolaInfo] = useApi({
@@ -148,9 +152,9 @@ const [userData, setUserData] = useState();
   },[]);
 
   useEffect(()=>{
+    //gráficos por turma 01
     const dg = [];
     const obj = [];
-//grafico por turma 01
       dg[0] = [
         {
           id: 1,
@@ -321,10 +325,14 @@ const [userData, setUserData] = useState();
     setUserData(obj);
 
 
-    // por questão 03
+    // gráficos por questão 03
     let temp = [];
+    let temp2= [];
+    let tempTurma = [];
 
+    //LINGUAGENS
     dadosGraficos?.porQuestao.linguagens.map((o, k) => {
+      tempTurma[k] = [o.turma];
       let NotaRede = [
         {
           id: 1,
@@ -385,7 +393,10 @@ const [userData, setUserData] = useState();
           turma: "Q011",
           nota: o.acertos.q11.escola,
           media: o.acertos.q11.rede,
-        },
+        }
+      ]
+
+      let NotaRede2 = [
         {
           id: 12,
           turma: "Q012",
@@ -451,7 +462,7 @@ const [userData, setUserData] = useState();
           turma: "Q022",
           nota: o.acertos.q22.escola,
           media: o.acertos.q22.rede,
-        },
+        }
       ]
 
       temp[k] = {
@@ -460,7 +471,18 @@ const [userData, setUserData] = useState();
               {
                 label: 'UNIDADE',
                 data: NotaRede.map((data) => data.nota),
-                backgroundColor: "#0000ff",
+                // backgroundColor: "#0000ff",
+                backgroundColor: NotaRede.map((data) => {
+                  if (data.nota < 70) {
+                    if (data.nota < 50) {
+                      return "#e7402d";
+                    } else {
+                      return "#fdc719";
+                    }
+                  } else {
+                    return "#75b52b";
+                  }
+                }),
                 borderColor: "black",
                 borderWidth: 1,
                 barThickness: 15,
@@ -485,8 +507,285 @@ const [userData, setUserData] = useState();
               }
             ]
           };
+
+          temp2[k] = {
+            labels: NotaRede2.map((item) => item.turma),
+            datasets: [
+              {
+                label: 'UNIDADE',
+                data: NotaRede2.map((data) => data.nota),
+                // backgroundColor: "#0000ff",
+                backgroundColor: NotaRede2.map((data) => {
+                  if (data.nota < 70) {
+                    if (data.nota < 50) {
+                      return "#e7402d";
+                    } else {
+                      return "#fdc719";
+                    }
+                  } else {
+                    return "#75b52b";
+                  }
+                }),
+                borderColor: "black",
+                borderWidth: 1,
+                barThickness: 15,
+                datalabels: {
+                  color: "black",
+                  anchor: "end",
+                  align: "top"
+                }
+              },
+              {
+                label: 'REDE',
+                data: NotaRede2.map((data) => data.media),
+                backgroundColor: "#c4c4c4",
+                borderColor: "black",
+                borderWidth: 1,
+                barThickness: 15,
+                datalabels: {
+                  color: "black",
+                  anchor: "end",
+                  align: "top"
+                }
+              }
+            ]
+          };
     });
     setChartLinguagens(temp);
+    setChartLinguagens2(temp2);
+    setTurmasArray(tempTurma);
+
+    // MATEMATICA
+    // por questão 03
+    let tempMat = [];
+    let tempMat2= [];
+    let tempTurmaMat = [];
+
+    dadosGraficos?.porQuestao.matematica.map((o, k) => {
+      tempTurmaMat[k] = [o.turma];
+      let NotaRede = [
+        {
+          id: 1,
+          turma: "Q01",
+          nota: o.acertos.q1.escola,
+          media: o.acertos.q1.rede,
+        },
+        {
+          id: 2,
+          turma: "Q02",
+          nota: o.acertos.q2.escola,
+          media: o.acertos.q2.rede,
+        },
+        {
+          id: 3,
+          turma: "Q03",
+          nota: o.acertos.q3.escola,
+          media: o.acertos.q3.rede,
+        },
+        {
+          id: 4,
+          turma: "Q04",
+          nota: o.acertos.q4.escola,
+          media: o.acertos.q4.rede,
+        },
+        {
+          id: 5,
+          turma: "Q05",
+          nota: o.acertos.q5.escola,
+          media: o.acertos.q5.rede,
+        },
+        {
+          id: 6,
+          turma: "Q06",
+          nota: o.acertos.q6.escola,
+          media: o.acertos.q6.rede,
+        },
+        {
+          id: 7,
+          turma: "Q07",
+          nota: o.acertos.q7.escola,
+          media: o.acertos.q7.rede,
+        },
+        {
+          id: 9,
+          turma: "Q09",
+          nota: o.acertos.q9.escola,
+          media: o.acertos.q9.rede,
+        },
+        {
+          id: 10,
+          turma: "Q010",
+          nota: o.acertos.q10.escola,
+          media: o.acertos.q10.rede,
+        },
+        {
+          id: 11,
+          turma: "Q011",
+          nota: o.acertos.q11.escola,
+          media: o.acertos.q11.rede,
+        }
+      ]
+
+      let NotaRede2 = [
+        {
+          id: 12,
+          turma: "Q012",
+          nota: o.acertos.q12.escola,
+          media: o.acertos.q12.rede,
+        },
+        {
+          id: 13,
+          turma: "Q013",
+          nota: o.acertos.q13.escola,
+          media: o.acertos.q13.rede,
+        },
+        {
+          id: 14,
+          turma: "Q014",
+          nota: o.acertos.q14.escola,
+          media: o.acertos.q14.rede,
+        },
+        {
+          id: 15,
+          turma: "Q015",
+          nota: o.acertos.q15.escola,
+          media: o.acertos.q15.rede,
+        },
+        {
+          id: 16,
+          turma: "Q016",
+          nota: o.acertos.q16.escola,
+          media: o.acertos.q16.rede,
+        },
+        {
+          id: 17,
+          turma: "Q017",
+          nota: o.acertos.q17.escola,
+          media: o.acertos.q17.rede,
+        },
+        {
+          id: 18,
+          turma: "Q018",
+          nota: o.acertos.q18.escola,
+          media: o.acertos.q18.rede,
+        },
+        {
+          id: 19,
+          turma: "Q019",
+          nota: o.acertos.q19.escola,
+          media: o.acertos.q19.rede,
+        },
+        {
+          id: 20,
+          turma: "Q020",
+          nota: o.acertos.q20.escola,
+          media: o.acertos.q20.rede,
+        },
+        {
+          id: 21,
+          turma: "Q021",
+          nota: o.acertos.q21.escola,
+          media: o.acertos.q21.rede,
+        },
+        {
+          id: 22,
+          turma: "Q022",
+          nota: o.acertos.q22.escola,
+          media: o.acertos.q22.rede,
+        }
+      ]
+
+      tempMat[k] = {
+            labels: NotaRede.map((item) => item.turma),
+            datasets: [
+              {
+                label: 'UNIDADE',
+                data: NotaRede.map((data) => data.nota),
+                // backgroundColor: "#0000ff",
+                backgroundColor: NotaRede.map((data) => {
+                  if (data.nota < 70) {
+                    if (data.nota < 50) {
+                      return "#e7402d";
+                    } else {
+                      return "#fdc719";
+                    }
+                  } else {
+                    return "#75b52b";
+                  }
+                }),
+                borderColor: "black",
+                borderWidth: 1,
+                barThickness: 15,
+                datalabels: {
+                  color: "black",
+                  anchor: "end",
+                  align: "top"
+                }
+              },
+              {
+                label: 'REDE',
+                data: NotaRede.map((data) => data.media),
+                backgroundColor: "#c4c4c4",
+                borderColor: "black",
+                borderWidth: 1,
+                barThickness: 15,
+                datalabels: {
+                  color: "black",
+                  anchor: "end",
+                  align: "top"
+                }
+              }
+            ]
+          };
+
+          tempMat2[k] = {
+            labels: NotaRede2.map((item) => item.turma),
+            datasets: [
+              {
+                label: 'UNIDADE',
+                data: NotaRede2.map((data) => data.nota),
+                // backgroundColor: "#0000ff",
+                backgroundColor: NotaRede2.map((data) => {
+                  if (data.nota < 70) {
+                    if (data.nota < 50) {
+                      return "#e7402d";
+                    } else {
+                      return "#fdc719";
+                    }
+                  } else {
+                    return "#75b52b";
+                  }
+                }),
+                borderColor: "black",
+                borderWidth: 1,
+                barThickness: 15,
+                datalabels: {
+                  color: "black",
+                  anchor: "end",
+                  align: "top"
+                }
+              },
+              {
+                label: 'REDE',
+                data: NotaRede2.map((data) => data.media),
+                backgroundColor: "#c4c4c4",
+                borderColor: "black",
+                borderWidth: 1,
+                barThickness: 15,
+                datalabels: {
+                  color: "black",
+                  anchor: "end",
+                  align: "top"
+                }
+              }
+            ]
+          };
+    });
+    setChartLinguagens(temp);
+    setChartLinguagens2(temp2);
+    setChartMatematica(tempMat);
+    setChartMatematica2(tempMat2);
+    setTurmasArray(tempTurma);
 
     
   },[dadosGraficos])
@@ -509,7 +808,8 @@ const [userData, setUserData] = useState();
         <BarChart chartData={userData} escola={escola} outro={porAno?.a5}/> */}
       </div>
       <div style={{ width: 900 }}>
-        {chartLinguagens && <QuestionsChart chartData={chartLinguagens} />}
+        {chartLinguagens && <QuestionsChart chartData={chartLinguagens} chartData2={chartLinguagens2} turmas={turmasArray} />}
+        {chartMatematica && <QuestionsChartMat chartData={chartMatematica} chartData2={chartMatematica2} turmas={turmasArray} />}
         
       </div>
       {/* <div style={{ width: 700 }}>

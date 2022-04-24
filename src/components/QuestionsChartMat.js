@@ -70,14 +70,14 @@ function QuestionsChart({ chartData, chartData2, turmas }) {
   }, []);
 
   dadosGrafico?.map((obj,k)=>{
-  filename[k] = `grafico03_${turmas[k]}_linguagens_1.png`;
+  filename[k] = `grafico03_${turmas[k]}_matemática_1.png`;
   options[k] = { 
     maintainAspectRatio: false,
      
     plugins: {
       title: {
         display: true,
-        text: `${String(turmas[k]).charAt(0)}º ANO ${String(turmas[k]).charAt(1)} x Desempenho da Rede - LINGUAGENS`,
+        text: `${String(turmas[k]).charAt(0)}º ANO ${String(turmas[k]).charAt(1)} x Desempenho da Rede - MATEMÁTICA`,
         padding: {
             top: 10,
             bottom: 15
@@ -115,7 +115,7 @@ function QuestionsChart({ chartData, chartData2, turmas }) {
 
 
 dadosGrafico2?.map((obj,k)=>{
-  filename2[k] = `grafico03_${turmas[k]}_linguagens_2.png`;
+  filename2[k] = `grafico03_${turmas[k]}_matematica_2.png`;
   options2[k] = { 
     maintainAspectRatio: false,     
     plugins: {  
