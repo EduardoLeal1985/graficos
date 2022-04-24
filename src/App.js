@@ -329,145 +329,145 @@ const [userData, setUserData] = useState();
     setUserData(obj);
 
     // gráfico por turma - 02
-    const turmaColors = [
-      '#7F7F7F',
-      '#5B9BD5',
-      '#ED7D31',
-      '#E763D7'
-    ]
-    const dgTurma = [];
-    const dataSetsPorTurma = [];
-    const dataSetsPorTurma2 = [];
-    const dataSetsPorTurma3 = [];
-    const dataSetsPorTurma4 = [];
-    const dataSetsPorTurma5 = [];
+    // const turmaColors = [
+    //   '#7F7F7F',
+    //   '#5B9BD5',
+    //   '#ED7D31',
+    //   '#E763D7'
+    // ]
+    // const dgTurma = [];
+    // const dataSetsPorTurma = [];
+    // const dataSetsPorTurma2 = [];
+    // const dataSetsPorTurma3 = [];
+    // const dataSetsPorTurma4 = [];
+    // const dataSetsPorTurma5 = [];
 
-    dadosGraficos?.porTurma.a1.escola.linguagens.map((item,key)=>{
-      dataSetsPorTurma[key] = {
-        label: item.turma,
-        data: [dadosGraficos?.porTurma.a1.escola.linguagens[key].nota,dadosGraficos?.porTurma.a1.escola.matematica[key].nota],
-        backgroundColor: [turmaColors[key], turmaColors[key]],
-        borderColor: "black",
-        borderWidth: 1,
-        datalabels: {
-          color: "black",
-          anchor: "end",
-          align: "top"
-        }
-      };
-    });
+    // dadosGraficos?.porTurma.a1.escola.linguagens.map((item,key)=>{
+    //   dataSetsPorTurma[key] = {
+    //     label: item.turma,
+    //     data: [dadosGraficos?.porTurma.a1.escola.linguagens[key].nota,dadosGraficos?.porTurma.a1.escola.matematica[key].nota],
+    //     backgroundColor: [turmaColors[key], turmaColors[key]],
+    //     borderColor: "black",
+    //     borderWidth: 1,
+    //     datalabels: {
+    //       color: "black",
+    //       anchor: "end",
+    //       align: "top"
+    //     }
+    //   };
+    // });
 
-    dadosGraficos?.porTurma.a2.escola.linguagens.map((item,key)=>{
-      dataSetsPorTurma[key] = {
-        label: dadosGraficos?.porTurma.a2.escola.linguagens[key].turma,
-        data: [dadosGraficos?.porTurma.a2.escola.linguagens[key].nota,dadosGraficos?.porTurma.a2.escola.matematica[key].nota],
-        backgroundColor: [turmaColors[key], turmaColors[key]],
-        borderColor: "black",
-        borderWidth: 1,
-        datalabels: {
-          color: "black",
-          anchor: "end",
-          align: "top"
-        }
-      };
-    });
+    // dadosGraficos?.porTurma.a2.escola.linguagens.map((item,key)=>{
+    //   dataSetsPorTurma[key] = {
+    //     label: dadosGraficos?.porTurma.a2.escola.linguagens[key].turma,
+    //     data: [dadosGraficos?.porTurma.a2.escola.linguagens[key].nota,dadosGraficos?.porTurma.a2.escola.matematica[key].nota],
+    //     backgroundColor: [turmaColors[key], turmaColors[key]],
+    //     borderColor: "black",
+    //     borderWidth: 1,
+    //     datalabels: {
+    //       color: "black",
+    //       anchor: "end",
+    //       align: "top"
+    //     }
+    //   };
+    // });
 
-    dadosGraficos?.porTurma.a3.escola.linguagens.map((item,key)=>{
-      dataSetsPorTurma[key] = {
-        label: dadosGraficos?.porTurma.a3.escola.linguagens[key].turma,
-        data: [dadosGraficos?.porTurma.a3.escola.linguagens[key].nota,dadosGraficos?.porTurma.a3.escola.matematica[key].nota],
-        backgroundColor: [turmaColors[key], turmaColors[key]],
-        borderColor: "black",
-        borderWidth: 1,
-        datalabels: {
-          color: "black",
-          anchor: "end",
-          align: "top"
-        }
-      };
-    });
+    // dadosGraficos?.porTurma.a3.escola.linguagens.map((item,key)=>{
+    //   dataSetsPorTurma[key] = {
+    //     label: dadosGraficos?.porTurma.a3.escola.linguagens[key].turma,
+    //     data: [dadosGraficos?.porTurma.a3.escola.linguagens[key].nota,dadosGraficos?.porTurma.a3.escola.matematica[key].nota],
+    //     backgroundColor: [turmaColors[key], turmaColors[key]],
+    //     borderColor: "black",
+    //     borderWidth: 1,
+    //     datalabels: {
+    //       color: "black",
+    //       anchor: "end",
+    //       align: "top"
+    //     }
+    //   };
+    // });
 
-    dadosGraficos?.porTurma.a4.escola.linguagens.map((item,key)=>{
-      dataSetsPorTurma[key] = {
-        label: dadosGraficos?.porTurma.a4.escola.linguagens[key].turma,
-        data: [dadosGraficos?.porTurma.a4.escola.linguagens[key].nota,dadosGraficos?.porTurma.a4.escola.matematica[key].nota],
-        backgroundColor: [turmaColors[key], turmaColors[key]],
-        borderColor: "black",
-        borderWidth: 1,
-        datalabels: {
-          color: "black",
-          anchor: "end",
-          align: "top"
-        }
-      };
-    });
+    // dadosGraficos?.porTurma.a4.escola.linguagens.map((item,key)=>{
+    //   dataSetsPorTurma[key] = {
+    //     label: dadosGraficos?.porTurma.a4.escola.linguagens[key].turma,
+    //     data: [dadosGraficos?.porTurma.a4.escola.linguagens[key].nota,dadosGraficos?.porTurma.a4.escola.matematica[key].nota],
+    //     backgroundColor: [turmaColors[key], turmaColors[key]],
+    //     borderColor: "black",
+    //     borderWidth: 1,
+    //     datalabels: {
+    //       color: "black",
+    //       anchor: "end",
+    //       align: "top"
+    //     }
+    //   };
+    // });
 
-    dadosGraficos?.porTurma.a5.escola.linguagens.map((item,key)=>{
-      dataSetsPorTurma[key] = {
-        label: dadosGraficos?.porTurma.a5.escola.linguagens[key].turma,
-        data: [dadosGraficos?.porTurma.a5.escola.linguagens[key].nota,dadosGraficos?.porTurma.a5.escola.matematica[key].nota],
-        backgroundColor: [turmaColors[key], turmaColors[key]],
-        borderColor: "black",
-        borderWidth: 1,
-        datalabels: {
-          color: "black",
-          anchor: "end",
-          align: "top"
-        }
-      };
-    });
+    // dadosGraficos?.porTurma.a5.escola.linguagens.map((item,key)=>{
+    //   dataSetsPorTurma[key] = {
+    //     label: dadosGraficos?.porTurma.a5.escola.linguagens[key].turma,
+    //     data: [dadosGraficos?.porTurma.a5.escola.linguagens[key].nota,dadosGraficos?.porTurma.a5.escola.matematica[key].nota],
+    //     backgroundColor: [turmaColors[key], turmaColors[key]],
+    //     borderColor: "black",
+    //     borderWidth: 1,
+    //     datalabels: {
+    //       color: "black",
+    //       anchor: "end",
+    //       align: "top"
+    //     }
+    //   };
+    // });
 
-    const objPorTurma = [
-      {
-        labels: ['LINGUAGENS', 'MATEMÁTICA'],
-        datasets: dataSetsPorTurma,
-      },
-      {
-        labels: ['LINGUAGENS', 'MATEMÁTICA'],
-        datasets: dataSetsPorTurma2,
-      },
-      {
-        labels: ['LINGUAGENS', 'MATEMÁTICA'],
-        datasets: dataSetsPorTurma3,
-      },
-      {
-        labels: ['LINGUAGENS', 'MATEMÁTICA'],
-        datasets: dataSetsPorTurma4,
-      },
-      {
-        labels: ['LINGUAGENS', 'MATEMÁTICA'],
-        datasets: dataSetsPorTurma5,
-      }
-    ];
+    // const objPorTurma = [
+    //   {
+    //     labels: ['LINGUAGENS', 'MATEMÁTICA'],
+    //     datasets: dataSetsPorTurma,
+    //   },
+    //   {
+    //     labels: ['LINGUAGENS', 'MATEMÁTICA'],
+    //     datasets: dataSetsPorTurma2,
+    //   },
+    //   {
+    //     labels: ['LINGUAGENS', 'MATEMÁTICA'],
+    //     datasets: dataSetsPorTurma3,
+    //   },
+    //   {
+    //     labels: ['LINGUAGENS', 'MATEMÁTICA'],
+    //     datasets: dataSetsPorTurma4,
+    //   },
+    //   {
+    //     labels: ['LINGUAGENS', 'MATEMÁTICA'],
+    //     datasets: dataSetsPorTurma5,
+    //   }
+    // ];
 
-    console.log(objPorTurma);
+    // console.log(objPorTurma);
 
-    dgTurma[0] = [
-      {
-        id: 1,
-        turma: "LINGUAGENS",
-        nota: dadosGraficos?.porAno.a1.linguagens.escola,
-        media: dadosGraficos?.porAno.a1.linguagens.rede,
-      },
-      {
-        id: 2,
-        turma: "MATEMÁTICA",
-        nota: dadosGraficos?.porAno.a1.matematica.escola,
-        media: dadosGraficos?.porAno.a1.matematica.rede,
-      },
-      {
-        id: 3,
-        turma: "ARTES",
-        nota: dadosGraficos?.porAno.a1.arte.escola,
-        media: dadosGraficos?.porAno.a1.arte.rede,
-      },
-      {
-        id: 4,
-        turma: "ED. FÍSICA",
-        nota: dadosGraficos?.porAno.a1.ed_fisica.escola,
-        media: dadosGraficos?.porAno.a1.ed_fisica.rede,
-      },
-    ];
+    // dgTurma[0] = [
+    //   {
+    //     id: 1,
+    //     turma: "LINGUAGENS",
+    //     nota: dadosGraficos?.porAno.a1.linguagens.escola,
+    //     media: dadosGraficos?.porAno.a1.linguagens.rede,
+    //   },
+    //   {
+    //     id: 2,
+    //     turma: "MATEMÁTICA",
+    //     nota: dadosGraficos?.porAno.a1.matematica.escola,
+    //     media: dadosGraficos?.porAno.a1.matematica.rede,
+    //   },
+    //   {
+    //     id: 3,
+    //     turma: "ARTES",
+    //     nota: dadosGraficos?.porAno.a1.arte.escola,
+    //     media: dadosGraficos?.porAno.a1.arte.rede,
+    //   },
+    //   {
+    //     id: 4,
+    //     turma: "ED. FÍSICA",
+    //     nota: dadosGraficos?.porAno.a1.ed_fisica.escola,
+    //     media: dadosGraficos?.porAno.a1.ed_fisica.rede,
+    //   },
+    // ];
 
     // gráficos por questão 03
     let temp = [];
