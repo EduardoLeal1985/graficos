@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from "react";
+import React, { useRef, useCallback, useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 // import { Chart as ChartJS } from "chart.js/auto";
@@ -10,17 +10,19 @@ import useApi from "../hooks/useApi";
 Chart.register(CategoryScale);
 
 function QuestionsChart({ chartData }) {
-  let ref = useRef(null);
+  let ref = useRef([]);
 
-  const downloadImage = useCallback(() => {
-    const objB64 = ref.current.toBase64Image();
-    const dataObject = {
-      data: objB64,
-    }
-    enviaGrafico({
-      data: dataObject,
-    });
-  }, []);
+  const [dadosGrafico, setDadosGrafico] = useState(chartData);
+
+  // const downloadImage = useCallback(() => {
+  //   const objB64 = ref.current.toBase64Image();
+  //   const dataObject = {
+  //     data: objB64,
+  //   }
+  //   enviaGrafico({
+  //     data: dataObject,
+  //   });
+  // }, []);
 
 
   const [enviaGrafico, enviaGraficoInfo] = useApi({
@@ -56,11 +58,16 @@ function QuestionsChart({ chartData }) {
       y:
       {
         min: 0,
-        max: 22,
-        stepSize: 2,
+        max: 100,
+        stepSize: 20,
       }
     }
   };
+
+  useEffect(()=>{
+    setDadosGrafico(chartData);
+    console.log(dadosGrafico);
+  },[chartData]);
 
   // return <Bar 
   //   data={chartData}
@@ -71,8 +78,15 @@ function QuestionsChart({ chartData }) {
   return (
     <div>
       {/* <button type="button" onClick={downloadImage}>Download</button> */}
-      <div>
-        <Bar ref={ref} data={chartData} options={options} plugins={[ChartDataLabels]} />
+      <div class="chart-container" style={{"position": "relative", "height":"360px", "width":"800px"}}>
+        {dadosGrafico?.map((obj,k)=>{
+          return (
+            <Bar key={k} ref={el => (ref.current[k] = el)} data={dadosGrafico[k]} options={options} plugins={[ChartDataLabels]} />
+          );
+        })}
+            {/* <Bar ref={el => (ref.current[0] = el)} data={dadosGrafico[0]} options={options} plugins={[ChartDataLabels]} />           
+            <Bar ref={el => (ref.current[1] = el)} data={dadosGrafico[1]} options={options} plugins={[ChartDataLabels]} />            */}
+
       </div>
     </div>
   );
