@@ -94,13 +94,31 @@ function BarChart({ chartData, escola }) {
   return (
     <div>
       <button type="button" onClick={downloadImage}>Download</button>
-      <div class="chart-container" style={{"position": "relative", "height":"360px", "width":"800px"}}>
-        <Bar ref={el => (ref.current[0] = el)} data={chartData[0]} options={options[0]} plugins={[ChartDataLabels]} />
-        <Bar ref={el => (ref.current[1] = el)} data={chartData[1]} options={options[1]} plugins={[ChartDataLabels]} />
-        <Bar ref={el => (ref.current[2] = el)} data={chartData[2]} options={options[2]} plugins={[ChartDataLabels]} />
-        <Bar ref={el => (ref.current[3] = el)} data={chartData[3]} options={options[3]} plugins={[ChartDataLabels]} />
-        <Bar ref={el => (ref.current[4] = el)} data={chartData[4]} options={options[4]} plugins={[ChartDataLabels]} />
-      </div>
+      {chartData[0].datasets[0].data[0] && 
+        <div class="chart-container" style={{"position": "relative", "height":"360px", "width":"800px"}}>
+          <Bar ref={el => (ref.current[0] = el)} data={chartData[0]} options={options[0]} plugins={[ChartDataLabels]} />
+        </div> 
+      }
+      {chartData[1].datasets[0].data[0] && 
+        <div class="chart-container" style={{"position": "relative", "height":"360px", "width":"800px"}}>
+          <Bar ref={el => (ref.current[1] = el)} data={chartData[1]} options={options[1]} plugins={[ChartDataLabels]} />
+        </div>
+      }
+      {chartData[2].datasets[0].data[0] && 
+        <div class="chart-container" style={{"position": "relative", "height":"360px", "width":"800px"}}>
+          <Bar ref={el => (ref.current[2] = el)} data={chartData[2]} options={options[2]} plugins={[ChartDataLabels]} />
+        </div>
+      }
+      {chartData[3].datasets[0].data[0] && 
+        <div class="chart-container" style={{"position": "relative", "height":"360px", "width":"800px"}}>
+          <Bar ref={el => (ref.current[3] = el)} data={chartData[3]} options={options[3]} plugins={[ChartDataLabels]} />
+        </div>
+      }
+      {chartData[4].datasets[0].data[0] && 
+        <div class="chart-container" style={{"position": "relative", "height":"360px", "width":"800px"}}>
+          <Bar ref={el => (ref.current[4] = el)} data={chartData[4]} options={options[4]} plugins={[ChartDataLabels]} />
+        </div>
+      }
     </div>
   );
 }

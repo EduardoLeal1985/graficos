@@ -204,22 +204,64 @@ console.log(chartData);
         labels: ['ARTE', 'ED. FÍSICA'],
         datasets: chartData10,
       };
-
+      console.clear();
+      console.log(objPorTurma.datasets.length);
+      console.log(objPorTurma2.datasets.length);
+      console.log(objPorTurma3.datasets.length);
+      console.log(objPorTurma4.datasets.length);
   return (
     <div>
       <button type="button" onClick={downloadImage}>Download</button>
-      <div class="chart-container" style={{"position": "relative", "height":"360px", "width":"800px"}}>
-        <Bar ref={el => (ref.current[0] = el)} data={objPorTurma} options={options[0]} plugins={[ChartDataLabels]} />
-        <Bar ref={el => (ref.current[1] = el)} data={objPorTurma2} options={options[1]} plugins={[ChartDataLabels]} />
-        <Bar ref={el => (ref.current[2] = el)} data={objPorTurma3} options={options[2]} plugins={[ChartDataLabels]} />
-        <Bar ref={el => (ref.current[3] = el)} data={objPorTurma4} options={options[3]} plugins={[ChartDataLabels]} /> 
-        <Bar ref={el => (ref.current[4] = el)} data={objPorTurma5} options={options[4]} plugins={[ChartDataLabels]} />
-        <Bar ref={el => (ref.current[5] = el)} data={objPorTurma6} options={options[0]} plugins={[ChartDataLabels]} />
-        <Bar ref={el => (ref.current[6] = el)} data={objPorTurma7} options={options[1]} plugins={[ChartDataLabels]} />
-        <Bar ref={el => (ref.current[7] = el)} data={objPorTurma8} options={options[2]} plugins={[ChartDataLabels]} />
-        <Bar ref={el => (ref.current[8] = el)} data={objPorTurma9} options={options[3]} plugins={[ChartDataLabels]} />
-        <Bar ref={el => (ref.current[9] = el)} data={objPorTurma10} options={options[4]} plugins={[ChartDataLabels]} />
-      </div>
+      {objPorTurma.datasets.length>1 && 
+        <div class="chart-container" style={{"position": "relative", "height":"360px", "width":"800px"}}>
+          <Bar ref={el => (ref.current[0] = el)} data={objPorTurma} options={options[0]} plugins={[ChartDataLabels]} />
+        </div>
+      }
+      {objPorTurma2.datasets.length>1 && 
+          <div class="chart-container" style={{"position": "relative", "height":"360px", "width":"800px"}}>
+            <Bar ref={el => (ref.current[1] = el)} data={objPorTurma2} options={options[1]} plugins={[ChartDataLabels]} />
+          </div>
+       }
+       {objPorTurma3.datasets.length>1 && 
+          <div class="chart-container" style={{"position": "relative", "height":"360px", "width":"800px"}}>
+            <Bar ref={el => (ref.current[2] = el)} data={objPorTurma3} options={options[2]} plugins={[ChartDataLabels]} />
+          </div>
+        }
+         {objPorTurma4.datasets.length>1 && 
+          <div class="chart-container" style={{"position": "relative", "height":"360px", "width":"800px"}}>
+            <Bar ref={el => (ref.current[3] = el)} data={objPorTurma4} options={options[3]} plugins={[ChartDataLabels]} /> 
+          </div>
+         }
+         {objPorTurma5.datasets.length>1 && 
+          <div class="chart-container" style={{"position": "relative", "height":"360px", "width":"800px"}}>
+            <Bar ref={el => (ref.current[4] = el)} data={objPorTurma5} options={options[4]} plugins={[ChartDataLabels]} />
+          </div>
+         }
+         {objPorTurma6.datasets.length>1 && 
+          <div class="chart-container" style={{"position": "relative", "height":"360px", "width":"800px"}}>
+            <Bar ref={el => (ref.current[5] = el)} data={objPorTurma6} options={options[0]} plugins={[ChartDataLabels]} />
+          </div>
+         }
+         {objPorTurma7.datasets.length>1 && 
+          <div class="chart-container" style={{"position": "relative", "height":"360px", "width":"800px"}}>
+            <Bar ref={el => (ref.current[6] = el)} data={objPorTurma7} options={options[1]} plugins={[ChartDataLabels]} />
+          </div>
+         }
+         {objPorTurma8.datasets.length>1 && 
+          <div class="chart-container" style={{"position": "relative", "height":"360px", "width":"800px"}}>
+            <Bar ref={el => (ref.current[7] = el)} data={objPorTurma8} options={options[2]} plugins={[ChartDataLabels]} />
+          </div>
+         }
+         {objPorTurma9.datasets.length>1 && 
+          <div class="chart-container" style={{"position": "relative", "height":"360px", "width":"800px"}}>
+            <Bar ref={el => (ref.current[8] = el)} data={objPorTurma9} options={options[3]} plugins={[ChartDataLabels]} />
+          </div>
+         }
+         {objPorTurma10.datasets.length>1 && 
+            <div class="chart-container" style={{"position": "relative", "height":"360px", "width":"800px"}}>
+              <Bar ref={el => (ref.current[9] = el)} data={objPorTurma10} options={options[4]} plugins={[ChartDataLabels]} />
+            </div>
+        }
     </div>
   );
 }

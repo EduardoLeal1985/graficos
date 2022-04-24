@@ -1394,10 +1394,12 @@ setChartEdFisica(tempEdF);
 
   return (
     <div className="App">
-      <div style={{ width: 900, height:'100%' }}>   
+      <div style={{ width: 900 }}>   
       {/* DESCOMENTAR PARA O GRÁFICO 1 - POR ANO */}
-      {userData && <BarChart chartData={userData} escola={escola} />}     
-        
+      {userData && <BarChart chartData={userData} escola={escola} />} 
+      </div>    
+      
+      <div style={{ width: 900 }}>
         {/* DESCOMENTAR ABAIXO PARA O GRÁFICO 2 - POR TURMA */}
         {porTurma && <PorTurmaChart 
           chartData={porTurma} 
