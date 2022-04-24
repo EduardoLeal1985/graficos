@@ -164,6 +164,11 @@ const [userData, setUserData] = useState();
   const [porTurma3, setPorTurma3] = useState();
   const [porTurma4, setPorTurma4] = useState();
   const [porTurma5, setPorTurma5] = useState();
+  const [porTurma6, setPorTurma6] = useState();
+  const [porTurma7, setPorTurma7] = useState();
+  const [porTurma8, setPorTurma8] = useState();
+  const [porTurma9, setPorTurma9] = useState();
+  const [porTurma10, setPorTurma10] = useState();
 
   const [graficosEscola, graficosEscolaInfo] = useApi({
     debounceDelay:0,
@@ -383,6 +388,11 @@ const [userData, setUserData] = useState();
     const dataSetsPorTurma3 = [];
     const dataSetsPorTurma4 = [];
     const dataSetsPorTurma5 = [];
+    const dataSetsPorTurma6 = [];
+    const dataSetsPorTurma7 = [];
+    const dataSetsPorTurma8 = [];
+    const dataSetsPorTurma9 = [];
+    const dataSetsPorTurma10 = [];
 // console.log(dadosGraficos?.porTurma.a1.escola);
       
     dadosGraficos?.porTurma.a1.escola[0].linguagens.map((i,k)=>{
@@ -403,6 +413,19 @@ const [userData, setUserData] = useState();
         dataSetsPorTurma[key] =  {
             label: item,
             data: [notasLinguagem[key],notasMatematica[key]],
+            backgroundColor: [turmaColors[key], turmaColors[key]],
+            borderColor: "black",
+            borderWidth: 1,
+            datalabels: {
+              color: "black",
+              anchor: "end",
+              align: "top"
+            }
+          }
+
+          dataSetsPorTurma6[key] =  {
+            label: item,
+            data: [notasArte[key],notasEdFisica[key]],
             backgroundColor: [turmaColors[key], turmaColors[key]],
             borderColor: "black",
             borderWidth: 1,
@@ -448,6 +471,19 @@ const [userData, setUserData] = useState();
               align: "top"
             }
         }
+
+        dataSetsPorTurma7[key] =  {
+          label: item,
+          data: [notasArte2[key],notasEdFisica2[key]],
+          backgroundColor: [turmaColors[key], turmaColors[key]],
+          borderColor: "black",
+          borderWidth: 1,
+          datalabels: {
+            color: "black",
+            anchor: "end",
+            align: "top"
+          }
+        }
       });
 
       // 3 ANO
@@ -474,6 +510,18 @@ const [userData, setUserData] = useState();
         dataSetsPorTurma3[key] =  {
             label: item,
             data: [notasLinguagem3[key],notasMatematica3[key]],
+            backgroundColor: [turmaColors[key], turmaColors[key]],
+            borderColor: "black",
+            borderWidth: 1,
+            datalabels: {
+              color: "black",
+              anchor: "end",
+              align: "top"
+            }
+          }
+          dataSetsPorTurma8[key] =  {
+            label: item,
+            data: [notasArte3[key],notasEdFisica3[key]],
             backgroundColor: [turmaColors[key], turmaColors[key]],
             borderColor: "black",
             borderWidth: 1,
@@ -518,6 +566,18 @@ const [userData, setUserData] = useState();
               align: "top"
             }
           }
+          dataSetsPorTurma9[key] =  {
+            label: item,
+            data: [notasArte4[key],notasEdFisica4[key]],
+            backgroundColor: [turmaColors[key], turmaColors[key]],
+            borderColor: "black",
+            borderWidth: 1,
+            datalabels: {
+              color: "black",
+              anchor: "end",
+              align: "top"
+            }
+          }
       });
 
 // 5 ANOS
@@ -553,7 +613,20 @@ const [userData, setUserData] = useState();
               align: "top"
             }
           }
+          dataSetsPorTurma10[key] =  {
+            label: item,
+            data: [notasArte5[key],notasEdFisica5[key]],
+            backgroundColor: [turmaColors[key], turmaColors[key]],
+            borderColor: "black",
+            borderWidth: 1,
+            datalabels: {
+              color: "black",
+              anchor: "end",
+              align: "top"
+            }
+          }
       });
+      
       
       // item.matematica.map((i,k)=>{
       //   notasMatematica[k]=i.nota;     
@@ -590,6 +663,11 @@ const [userData, setUserData] = useState();
     setPorTurma3(dataSetsPorTurma3);
     setPorTurma4(dataSetsPorTurma4);
     setPorTurma5(dataSetsPorTurma5);
+    setPorTurma6(dataSetsPorTurma6);
+    setPorTurma7(dataSetsPorTurma7);
+    setPorTurma8(dataSetsPorTurma8);
+    setPorTurma9(dataSetsPorTurma9);
+    setPorTurma10(dataSetsPorTurma10);
 
     // dadosGraficos?.porTurma.a2.escola.linguagens.map((item,key)=>{
     //   dataSetsPorTurma[key] = {
@@ -1321,7 +1399,18 @@ setChartEdFisica(tempEdF);
       {/* {userData && <BarChart chartData={userData} escola={escola} />}      */}
         
         {/* DESCOMENTAR ABAIXO PARA O GRÁFICO 2 - POR TURMA */}
-        {porTurma && <PorTurmaChart chartData={porTurma} chartData2={porTurma2} chartData3={porTurma3} chartData4={porTurma4}  chartData5={porTurma5} escola={escola} />}
+        {porTurma && <PorTurmaChart 
+          chartData={porTurma} 
+          chartData2={porTurma2} 
+          chartData3={porTurma3} 
+          chartData4={porTurma4}  
+          chartData5={porTurma5} 
+          chartData6={porTurma6} 
+          chartData7={porTurma7} 
+          chartData8={porTurma8} 
+          chartData9={porTurma9} 
+          chartData10={porTurma10} 
+          escola={escola} />}
       </div>
       <div style={{ width: 900 }}>
         {/* DESCOMENTAR ABAIXO GRÁFICO 3 - POR QUESTÃO */}

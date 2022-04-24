@@ -9,7 +9,19 @@ import useApi from "../hooks/useApi";
 
 Chart.register(CategoryScale);
 
-function PorTurmaChart({ chartData, chartData2, chartData3, chartData4, chartData5, escola }) {
+function PorTurmaChart({ 
+  chartData, 
+  chartData2, 
+  chartData3, 
+  chartData4, 
+  chartData5, 
+  chartData6,
+  chartData7,
+  chartData8,
+  chartData9,
+  chartData10,
+  escola 
+}) {
   let ref = useRef([]);
 
 console.log(chartData);
@@ -19,7 +31,7 @@ console.log(chartData);
       const objB64 = item.toBase64Image();
       const dataObject = {
         data: objB64,
-        filename: `${escola}grafico02_${key+1}anos.png`,
+        filename: key<= 4 ? `${escola}grafico02_${key+1}anos.png` : `${escola}grafico02_${key-4}anos_2.png`,
       }
       enviaGrafico({
         data: dataObject,
@@ -172,6 +184,26 @@ console.log(chartData);
         labels: ['LINGUAGENS', 'MATEMÁTICA'],
         datasets: chartData5,
       };
+      const objPorTurma6 = {
+        labels: ['ARTE', 'ED. FÍSICA'],
+        datasets: chartData6,
+      };
+      const objPorTurma7 = {
+        labels: ['ARTE', 'ED. FÍSICA'],
+        datasets: chartData7,
+      };
+      const objPorTurma8 = {
+        labels: ['ARTE', 'ED. FÍSICA'],
+        datasets: chartData8,
+      };
+      const objPorTurma9 = {
+        labels: ['ARTE', 'ED. FÍSICA'],
+        datasets: chartData9,
+      };
+      const objPorTurma10 = {
+        labels: ['ARTE', 'ED. FÍSICA'],
+        datasets: chartData10,
+      };
 
   return (
     <div>
@@ -182,6 +214,11 @@ console.log(chartData);
         <Bar ref={el => (ref.current[2] = el)} data={objPorTurma3} options={options[2]} plugins={[ChartDataLabels]} />
         <Bar ref={el => (ref.current[3] = el)} data={objPorTurma4} options={options[3]} plugins={[ChartDataLabels]} /> 
         <Bar ref={el => (ref.current[4] = el)} data={objPorTurma5} options={options[4]} plugins={[ChartDataLabels]} />
+        <Bar ref={el => (ref.current[5] = el)} data={objPorTurma6} options={options[0]} plugins={[ChartDataLabels]} />
+        <Bar ref={el => (ref.current[6] = el)} data={objPorTurma7} options={options[1]} plugins={[ChartDataLabels]} />
+        <Bar ref={el => (ref.current[7] = el)} data={objPorTurma8} options={options[2]} plugins={[ChartDataLabels]} />
+        <Bar ref={el => (ref.current[8] = el)} data={objPorTurma9} options={options[3]} plugins={[ChartDataLabels]} />
+        <Bar ref={el => (ref.current[9] = el)} data={objPorTurma10} options={options[4]} plugins={[ChartDataLabels]} />
       </div>
     </div>
   );
