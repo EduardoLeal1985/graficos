@@ -5,6 +5,9 @@ import PieChart from "./components/PieChart";
 import Button from './components/UI/Button';
 import QuestionsChart from "./components/QuestionsChart";
 import QuestionsChartMat from "./components/QuestionsChartMat";
+import QuestionsChartArt from "./components/QuestionsChartArt";
+import QuestionsChartEdF from "./components/QuestionsChartEdF";
+import PorTurmaChart from "./components/PorTurmaChart";
 import { Chart } from "chart.js";
 import useApi from "./hooks/useApi";
 import { UserData } from "./Data";
@@ -130,6 +133,7 @@ const [userData, setUserData] = useState();
   const [chartArte, setChartArte] = useState([]);
   const [chartEdFisica, setChartEdFisica] = useState([]);
   // const [porAno, setPorAno] = useState();
+  const [porTurma, setPorTurma] = useState();
 
   const [graficosEscola, graficosEscolaInfo] = useApi({
     debounceDelay:0,
@@ -324,6 +328,146 @@ const [userData, setUserData] = useState();
     
     setUserData(obj);
 
+    // gráfico por turma - 02
+    const turmaColors = [
+      '#7F7F7F',
+      '#5B9BD5',
+      '#ED7D31',
+      '#E763D7'
+    ]
+    const dgTurma = [];
+    const dataSetsPorTurma = [];
+    const dataSetsPorTurma2 = [];
+    const dataSetsPorTurma3 = [];
+    const dataSetsPorTurma4 = [];
+    const dataSetsPorTurma5 = [];
+
+    dadosGraficos?.porTurma.a1.escola.linguagens.map((item,key)=>{
+      dataSetsPorTurma[key] = {
+        label: item.turma,
+        data: [dadosGraficos?.porTurma.a1.escola.linguagens[key].nota,dadosGraficos?.porTurma.a1.escola.matematica[key].nota],
+        backgroundColor: [turmaColors[key], turmaColors[key]],
+        borderColor: "black",
+        borderWidth: 1,
+        datalabels: {
+          color: "black",
+          anchor: "end",
+          align: "top"
+        }
+      };
+    });
+
+    dadosGraficos?.porTurma.a2.escola.linguagens.map((item,key)=>{
+      dataSetsPorTurma[key] = {
+        label: dadosGraficos?.porTurma.a2.escola.linguagens[key].turma,
+        data: [dadosGraficos?.porTurma.a2.escola.linguagens[key].nota,dadosGraficos?.porTurma.a2.escola.matematica[key].nota],
+        backgroundColor: [turmaColors[key], turmaColors[key]],
+        borderColor: "black",
+        borderWidth: 1,
+        datalabels: {
+          color: "black",
+          anchor: "end",
+          align: "top"
+        }
+      };
+    });
+
+    dadosGraficos?.porTurma.a3.escola.linguagens.map((item,key)=>{
+      dataSetsPorTurma[key] = {
+        label: dadosGraficos?.porTurma.a3.escola.linguagens[key].turma,
+        data: [dadosGraficos?.porTurma.a3.escola.linguagens[key].nota,dadosGraficos?.porTurma.a3.escola.matematica[key].nota],
+        backgroundColor: [turmaColors[key], turmaColors[key]],
+        borderColor: "black",
+        borderWidth: 1,
+        datalabels: {
+          color: "black",
+          anchor: "end",
+          align: "top"
+        }
+      };
+    });
+
+    dadosGraficos?.porTurma.a4.escola.linguagens.map((item,key)=>{
+      dataSetsPorTurma[key] = {
+        label: dadosGraficos?.porTurma.a4.escola.linguagens[key].turma,
+        data: [dadosGraficos?.porTurma.a4.escola.linguagens[key].nota,dadosGraficos?.porTurma.a4.escola.matematica[key].nota],
+        backgroundColor: [turmaColors[key], turmaColors[key]],
+        borderColor: "black",
+        borderWidth: 1,
+        datalabels: {
+          color: "black",
+          anchor: "end",
+          align: "top"
+        }
+      };
+    });
+
+    dadosGraficos?.porTurma.a5.escola.linguagens.map((item,key)=>{
+      dataSetsPorTurma[key] = {
+        label: dadosGraficos?.porTurma.a5.escola.linguagens[key].turma,
+        data: [dadosGraficos?.porTurma.a5.escola.linguagens[key].nota,dadosGraficos?.porTurma.a5.escola.matematica[key].nota],
+        backgroundColor: [turmaColors[key], turmaColors[key]],
+        borderColor: "black",
+        borderWidth: 1,
+        datalabels: {
+          color: "black",
+          anchor: "end",
+          align: "top"
+        }
+      };
+    });
+
+    const objPorTurma = [
+      {
+        labels: ['LINGUAGENS', 'MATEMÁTICA'],
+        datasets: dataSetsPorTurma,
+      },
+      {
+        labels: ['LINGUAGENS', 'MATEMÁTICA'],
+        datasets: dataSetsPorTurma2,
+      },
+      {
+        labels: ['LINGUAGENS', 'MATEMÁTICA'],
+        datasets: dataSetsPorTurma3,
+      },
+      {
+        labels: ['LINGUAGENS', 'MATEMÁTICA'],
+        datasets: dataSetsPorTurma4,
+      },
+      {
+        labels: ['LINGUAGENS', 'MATEMÁTICA'],
+        datasets: dataSetsPorTurma5,
+      }
+    ];
+
+    console.log(objPorTurma);
+
+    dgTurma[0] = [
+      {
+        id: 1,
+        turma: "LINGUAGENS",
+        nota: dadosGraficos?.porAno.a1.linguagens.escola,
+        media: dadosGraficos?.porAno.a1.linguagens.rede,
+      },
+      {
+        id: 2,
+        turma: "MATEMÁTICA",
+        nota: dadosGraficos?.porAno.a1.matematica.escola,
+        media: dadosGraficos?.porAno.a1.matematica.rede,
+      },
+      {
+        id: 3,
+        turma: "ARTES",
+        nota: dadosGraficos?.porAno.a1.arte.escola,
+        media: dadosGraficos?.porAno.a1.arte.rede,
+      },
+      {
+        id: 4,
+        turma: "ED. FÍSICA",
+        nota: dadosGraficos?.porAno.a1.ed_fisica.escola,
+        media: dadosGraficos?.porAno.a1.ed_fisica.rede,
+      },
+    ];
 
     // gráficos por questão 03
     let temp = [];
@@ -485,7 +629,7 @@ const [userData, setUserData] = useState();
                 }),
                 borderColor: "black",
                 borderWidth: 1,
-                barThickness: 15,
+                barThickness: 25,
                 datalabels: {
                   color: "black",
                   anchor: "end",
@@ -498,7 +642,7 @@ const [userData, setUserData] = useState();
                 backgroundColor: "#c4c4c4",
                 borderColor: "black",
                 borderWidth: 1,
-                barThickness: 15,
+                barThickness: 25,
                 datalabels: {
                   color: "black",
                   anchor: "end",
@@ -528,7 +672,7 @@ const [userData, setUserData] = useState();
                 }),
                 borderColor: "black",
                 borderWidth: 1,
-                barThickness: 15,
+                barThickness: 25,
                 datalabels: {
                   color: "black",
                   anchor: "end",
@@ -541,7 +685,7 @@ const [userData, setUserData] = useState();
                 backgroundColor: "#c4c4c4",
                 borderColor: "black",
                 borderWidth: 1,
-                barThickness: 15,
+                barThickness: 25,
                 datalabels: {
                   color: "black",
                   anchor: "end",
@@ -553,16 +697,13 @@ const [userData, setUserData] = useState();
     });
     setChartLinguagens(temp);
     setChartLinguagens2(temp2);
-    setTurmasArray(tempTurma);
 
     // MATEMATICA
-    // por questão 03
     let tempMat = [];
     let tempMat2= [];
-    let tempTurmaMat = [];
 
     dadosGraficos?.porQuestao.matematica.map((o, k) => {
-      tempTurmaMat[k] = [o.turma];
+      // tempTurma[k] = [o.turma];
       let NotaRede = [
         {
           id: 1,
@@ -715,7 +856,7 @@ const [userData, setUserData] = useState();
                 }),
                 borderColor: "black",
                 borderWidth: 1,
-                barThickness: 15,
+                barThickness: 25,
                 datalabels: {
                   color: "black",
                   anchor: "end",
@@ -728,7 +869,7 @@ const [userData, setUserData] = useState();
                 backgroundColor: "#c4c4c4",
                 borderColor: "black",
                 borderWidth: 1,
-                barThickness: 15,
+                barThickness: 25,
                 datalabels: {
                   color: "black",
                   anchor: "end",
@@ -758,7 +899,7 @@ const [userData, setUserData] = useState();
                 }),
                 borderColor: "black",
                 borderWidth: 1,
-                barThickness: 15,
+                barThickness: 25,
                 datalabels: {
                   color: "black",
                   anchor: "end",
@@ -771,7 +912,7 @@ const [userData, setUserData] = useState();
                 backgroundColor: "#c4c4c4",
                 borderColor: "black",
                 borderWidth: 1,
-                barThickness: 15,
+                barThickness: 25,
                 datalabels: {
                   color: "black",
                   anchor: "end",
@@ -781,10 +922,152 @@ const [userData, setUserData] = useState();
             ]
           };
     });
-    setChartLinguagens(temp);
-    setChartLinguagens2(temp2);
     setChartMatematica(tempMat);
     setChartMatematica2(tempMat2);
+
+// ARTE
+let tempArt = [];
+
+dadosGraficos?.porQuestao.arte.map((o, k) => {
+  // tempTurma[k] = [o.turma];
+  let NotaRede = [
+    {
+      id: 1,
+      turma: "Q01",
+      nota: o.acertos.q1.escola,
+      media: o.acertos.q1.rede,
+    },
+    {
+      id: 2,
+      turma: "Q02",
+      nota: o.acertos.q2.escola,
+      media: o.acertos.q2.rede,
+    },
+    {
+      id: 3,
+      turma: "Q03",
+      nota: o.acertos.q3.escola,
+      media: o.acertos.q3.rede,
+    }
+    ]
+
+  tempArt[k] = {
+        labels: NotaRede.map((item) => item.turma),
+        datasets: [
+          {
+            label: 'UNIDADE',
+            data: NotaRede.map((data) => data.nota),
+            // backgroundColor: "#0000ff",
+            backgroundColor: NotaRede.map((data) => {
+              if (data.nota < 70) {
+                if (data.nota < 50) {
+                  return "#e7402d";
+                } else {
+                  return "#fdc719";
+                }
+              } else {
+                return "#75b52b";
+              }
+            }),
+            borderColor: "black",
+            borderWidth: 1,
+            barThickness: 25,
+            datalabels: {
+              color: "black",
+              anchor: "end",
+              align: "top"
+            }
+          },
+          {
+            label: 'REDE',
+            data: NotaRede.map((data) => data.media),
+            backgroundColor: "#c4c4c4",
+            borderColor: "black",
+            borderWidth: 1,
+            barThickness: 25,
+            datalabels: {
+              color: "black",
+              anchor: "end",
+              align: "top"
+            }
+          }
+        ]
+      };
+});
+setChartArte(tempArt);
+
+// ED. FÍSICA
+let tempEdF = [];
+
+dadosGraficos?.porQuestao.edFisica.map((o, k) => {
+  // tempTurma[k] = [o.turma];
+  let NotaRede = [
+    {
+      id: 1,
+      turma: "Q01",
+      nota: o.acertos.q1.escola,
+      media: o.acertos.q1.rede,
+    },
+    {
+      id: 2,
+      turma: "Q02",
+      nota: o.acertos.q2.escola,
+      media: o.acertos.q2.rede,
+    },
+    {
+      id: 3,
+      turma: "Q03",
+      nota: o.acertos.q3.escola,
+      media: o.acertos.q3.rede,
+    }
+    ]
+
+    tempEdF[k] = {
+        labels: NotaRede.map((item) => item.turma),
+        datasets: [
+          {
+            label: 'UNIDADE',
+            data: NotaRede.map((data) => data.nota),
+            // backgroundColor: "#0000ff",
+            backgroundColor: NotaRede.map((data) => {
+              if (data.nota < 70) {
+                if (data.nota < 50) {
+                  return "#e7402d";
+                } else {
+                  return "#fdc719";
+                }
+              } else {
+                return "#75b52b";
+              }
+            }),
+            borderColor: "black",
+            borderWidth: 1,
+            barThickness: 25,
+            datalabels: {
+              color: "black",
+              anchor: "end",
+              align: "top"
+            }
+          },
+          {
+            label: 'REDE',
+            data: NotaRede.map((data) => data.media),
+            backgroundColor: "#c4c4c4",
+            borderColor: "black",
+            borderWidth: 1,
+            barThickness: 25,
+            datalabels: {
+              color: "black",
+              anchor: "end",
+              align: "top"
+            }
+          }
+        ]
+      };
+});
+setChartEdFisica(tempEdF);
+
+
     setTurmasArray(tempTurma);
 
     
@@ -799,17 +1082,22 @@ const [userData, setUserData] = useState();
 
   return (
     <div className="App">
-      <div style={{ width: 800 }}>   
+      <div style={{ width: 900, height:'100%' }}>   
+      {/* DESCOMENTAR PARA O GRÁFICO 1 */}
       {/* {userData && <BarChart chartData={userData} escola={escola} />}      */}
         
         {/* <BarChart chartData={userData} escola={escola} outro={porAno?.a2}/>
         <BarChart chartData={userData} escola={escola} outro={porAno?.a3}/>
         <BarChart chartData={userData} escola={escola} outro={porAno?.a4}/>
         <BarChart chartData={userData} escola={escola} outro={porAno?.a5}/> */}
+        {/* {porTurma && <PorTurmaChart chartData={porTurma} />} */}
       </div>
       <div style={{ width: 900 }}>
+        {/* DESCOMENTAR ABAIXO GRÁFICO 3 */}
         {chartLinguagens && <QuestionsChart chartData={chartLinguagens} chartData2={chartLinguagens2} turmas={turmasArray} />}
         {chartMatematica && <QuestionsChartMat chartData={chartMatematica} chartData2={chartMatematica2} turmas={turmasArray} />}
+        {chartArte && <QuestionsChartArt chartData={chartArte} turmas={turmasArray} />}
+        {chartEdFisica && <QuestionsChartEdF chartData={chartEdFisica} turmas={turmasArray} />}
         
       </div>
       {/* <div style={{ width: 700 }}>

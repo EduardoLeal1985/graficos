@@ -9,9 +9,12 @@ import useApi from "../hooks/useApi";
 
 Chart.register(CategoryScale);
 
-function QuestionsChart({ chartData, chartData2, turmas }) {
-  let ref = useRef([]);
-  let ref2 = useRef([]);
+const filename = [];
+const filename2 = [];
+
+function QuestionsChartMat({ chartData, chartData2, turmas }) {
+  let refMat = useRef([]);
+  let refMat2 = useRef([]);
 
   const [dadosGrafico, setDadosGrafico] = useState(chartData);
   const [dadosGrafico2, setDadosGrafico2] = useState(chartData2);
@@ -41,11 +44,10 @@ function QuestionsChart({ chartData, chartData2, turmas }) {
   console.log(turmas);
   const options = [];
   const options2 = [];
-  const filename = [];
-  const filename2 = [];
+
 
   const downloadImage = useCallback(() => {
-    ref.current.map((item, key)=>{
+    refMat.current.map((item, key)=>{
       const objB64 = item.toBase64Image();
       const dataObject = {
         data: objB64,
@@ -56,7 +58,7 @@ function QuestionsChart({ chartData, chartData2, turmas }) {
       });
     });
 
-    ref2.current.map((item, key)=>{
+    refMat2.current.map((item, key)=>{
       const objB64 = item.toBase64Image();
       const dataObject = {
         data: objB64,
@@ -70,7 +72,7 @@ function QuestionsChart({ chartData, chartData2, turmas }) {
   }, []);
 
   dadosGrafico?.map((obj,k)=>{
-  filename[k] = `grafico03_${turmas[k]}_matemática_1.png`;
+  filename[k] = `grafico03_${turmas[k]}_matematica_1.png`;
   options[k] = { 
     maintainAspectRatio: false,
      
@@ -166,10 +168,10 @@ dadosGrafico2?.map((obj,k)=>{
           return (
             <div>
               <div class="chart-container" style={{"position": "relative", "height":"240px", "width":"800px"}}>
-                <Bar key={k} ref={el => (ref.current[k] = el)} data={dadosGrafico[k]} options={options[k]} plugins={[ChartDataLabels]} />
+                <Bar key={k} ref={el => (refMat.current[k] = el)} data={dadosGrafico[k]} options={options[k]} plugins={[ChartDataLabels]} />
               </div>
               <div class="chart-container" style={{"position": "relative", "height":"210px", "width":"800px"}}>
-                <Bar key={k} ref={el => (ref2.current[k] = el)} data={dadosGrafico2[k]} options={options2[k]} plugins={[ChartDataLabels]} />
+                <Bar key={k} ref={el => (refMat2.current[k] = el)} data={dadosGrafico2[k]} options={options2[k]} plugins={[ChartDataLabels]} />
               </div>
               
             </div>
@@ -182,7 +184,7 @@ dadosGrafico2?.map((obj,k)=>{
   );
 }
 
-// const QuestionsChart = ({ chartData }) => {
+// const QuestionsChartMat = ({ chartData }) => {
 //   let ctx;
 //   let myChart = new Chart(ctx, {
 //     type: 'bar',
@@ -196,4 +198,4 @@ dadosGrafico2?.map((obj,k)=>{
 //  return myChart;
 // }
 
-export default QuestionsChart;
+export default QuestionsChartMat;

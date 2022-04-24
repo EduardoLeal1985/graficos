@@ -7,27 +7,14 @@ import Chart from 'chart.js/auto';
 import { CategoryScale } from "chart.js";
 import useApi from "../hooks/useApi";
 
-Chart.register(CategoryScale);
 const filename = [];
-const filename2 = [];
 
-function QuestionsChart({ chartData, chartData2, turmas }) {
-  let refLing = useRef([]);
-  let refLing2 = useRef([]);
+Chart.register(CategoryScale);
+
+function QuestionsChartArte({ chartData, turmas }) {
+  let refArt = useRef([]);
 
   const [dadosGrafico, setDadosGrafico] = useState(chartData);
-  const [dadosGrafico2, setDadosGrafico2] = useState(chartData2);
-
-  // const downloadImage = useCallback(() => {
-  //   const objB64 = ref.current.toBase64Image();
-  //   const dataObject = {
-  //     data: objB64,
-  //   }
-  //   enviaGrafico({
-  //     data: dataObject,
-  //   });
-  // }, []);
-
 
   const [enviaGrafico, enviaGraficoInfo] = useApi({
     debounceDelay: 0,
@@ -42,12 +29,9 @@ function QuestionsChart({ chartData, chartData2, turmas }) {
 
   console.log(turmas);
   const options = [];
-  const options2 = [];
- 
 
   const downloadImage = useCallback(() => {
-      console.log(filename);
-    refLing.current.map((item, key)=>{
+    refArt.current.map((item, key)=>{
       const objB64 = item.toBase64Image();
       const dataObject = {
         data: objB64,
@@ -57,29 +41,18 @@ function QuestionsChart({ chartData, chartData2, turmas }) {
         data: dataObject,
       });
     });
-
-    refLing2.current.map((item, key)=>{
-      const objB64 = item.toBase64Image();
-      const dataObject = {
-        data: objB64,
-        filename: filename2[key],
-      }
-      enviaGrafico({
-        data: dataObject,
-      });
-    });
     
   }, []);
 
   dadosGrafico?.map((obj,k)=>{
-  filename[k] = `grafico03_${turmas[k]}_linguagens_1.png`;
+  filename[k] = `grafico03_${turmas[k]}_arte_1.png`;
   options[k] = { 
     maintainAspectRatio: false,
      
     plugins: {
       title: {
         display: true,
-        text: `${String(turmas[k]).charAt(0)}º ANO ${String(turmas[k]).charAt(1)} x Desempenho da Rede - LINGUAGENS`,
+        text: `${String(turmas[k]).charAt(0)}º ANO ${String(turmas[k]).charAt(1)} x Desempenho da Rede - ARTE`,
         padding: {
             top: 10,
             bottom: 15
@@ -116,42 +89,10 @@ function QuestionsChart({ chartData, chartData2, turmas }) {
 });
 
 
-dadosGrafico2?.map((obj,k)=>{
-  filename2[k] = `grafico03_${turmas[k]}_linguagens_2.png`;
-  options2[k] = { 
-    maintainAspectRatio: false,     
-    plugins: {  
-      legend: {
-        display: false,
-      },
-      datalabels: {
-        color: '#000',
-        formatter: function (value) {
-          return Math.round(value) + '%';
-        },
-        font: {
-          weight: 'bold',
-          size: 10,
-        }
-      }
-    },
-    xAxes: [{ticks: {mirror: true}}],
-    scales: {
-      y:
-      {
-        min: 0,
-        max: 100,
-        stepSize: 20,
-      }
-    }
-  };
-});
-
-
   useEffect(()=>{
     setDadosGrafico(chartData);
-    setDadosGrafico2(chartData2);
-  },[chartData,chartData2]);
+    console.log(dadosGrafico);
+  },[chartData]);
 
   // return <Bar 
   //   data={chartData}
@@ -165,13 +106,9 @@ dadosGrafico2?.map((obj,k)=>{
         {dadosGrafico?.map((obj,k)=>{
           return (
             <div>
-              <div class="chart-container" style={{"position": "relative", "height":"240px", "width":"800px"}}>
-                <Bar key={k} ref={el => (refLing.current[k] = el)} data={dadosGrafico[k]} options={options[k]} plugins={[ChartDataLabels]} />
-              </div>
-              <div class="chart-container" style={{"position": "relative", "height":"210px", "width":"800px"}}>
-                <Bar key={k} ref={el => (refLing2.current[k] = el)} data={dadosGrafico2[k]} options={options2[k]} plugins={[ChartDataLabels]} />
-              </div>
-              
+              <div class="chart-container" style={{"position": "relative", "height":"240px", "width":"360px"}}>
+                <Bar key={k} ref={el => (refArt.current[k] = el)} data={dadosGrafico[k]} options={options[k]} plugins={[ChartDataLabels]} />
+              </div>              
             </div>
           );
         })}
@@ -182,7 +119,7 @@ dadosGrafico2?.map((obj,k)=>{
   );
 }
 
-// const QuestionsChart = ({ chartData }) => {
+// const QuestionsChartArte = ({ chartData }) => {
 //   let ctx;
 //   let myChart = new Chart(ctx, {
 //     type: 'bar',
@@ -196,4 +133,4 @@ dadosGrafico2?.map((obj,k)=>{
 //  return myChart;
 // }
 
-export default QuestionsChart;
+export default QuestionsChartArte;
