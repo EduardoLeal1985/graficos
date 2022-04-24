@@ -142,7 +142,6 @@ const [userData, setUserData] = useState();
     onCompleted: (response) => {
       if (!response.error) {
         setDadosGraficos(response.data);
-        setEscola(response.data.escola);
       }
     }
   });
@@ -150,6 +149,7 @@ const [userData, setUserData] = useState();
   useEffect(()=>{
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
+    setEscola(urlParams.get('idescola'));
     graficosEscola({
       params: {
         idescola: urlParams.get('idescola'),
@@ -1096,10 +1096,10 @@ setChartEdFisica(tempEdF);
       </div>
       <div style={{ width: 900 }}>
         {/* DESCOMENTAR ABAIXO GRÁFICO 3 */}
-        {chartLinguagens && <QuestionsChart chartData={chartLinguagens} chartData2={chartLinguagens2} turmas={turmasArray} />}
-        {chartMatematica && <QuestionsChartMat chartData={chartMatematica} chartData2={chartMatematica2} turmas={turmasArray} />}
-        {chartArte && <QuestionsChartArt chartData={chartArte} turmas={turmasArray} />}
-        {chartEdFisica && <QuestionsChartEdF chartData={chartEdFisica} turmas={turmasArray} />}
+        {chartLinguagens && <QuestionsChart chartData={chartLinguagens} chartData2={chartLinguagens2} turmas={turmasArray} escola={escola} />}
+        {chartMatematica && <QuestionsChartMat chartData={chartMatematica} chartData2={chartMatematica2} turmas={turmasArray} escola={escola} />}
+        {chartArte && <QuestionsChartArt chartData={chartArte} turmas={turmasArray} escola={escola} />}
+        {chartEdFisica && <QuestionsChartEdF chartData={chartEdFisica} turmas={turmasArray} escola={escola} />}
         
       </div>
       {/* <div style={{ width: 700 }}>

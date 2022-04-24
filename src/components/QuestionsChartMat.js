@@ -12,7 +12,7 @@ Chart.register(CategoryScale);
 const filename = [];
 const filename2 = [];
 
-function QuestionsChartMat({ chartData, chartData2, turmas }) {
+function QuestionsChartMat({ chartData, chartData2, turmas, escola }) {
   let refMat = useRef([]);
   let refMat2 = useRef([]);
 
@@ -72,7 +72,7 @@ function QuestionsChartMat({ chartData, chartData2, turmas }) {
   }, []);
 
   dadosGrafico?.map((obj,k)=>{
-  filename[k] = `grafico03_${turmas[k]}_matematica_1.png`;
+  filename[k] = `${escola}grafico03_${turmas[k]}_matematica_1.png`;
   options[k] = { 
     maintainAspectRatio: false,
      

@@ -11,7 +11,7 @@ Chart.register(CategoryScale);
 const filename = [];
 const filename2 = [];
 
-function QuestionsChart({ chartData, chartData2, turmas }) {
+function QuestionsChart({ chartData, chartData2, turmas, escola }) {
   let refLing = useRef([]);
   let refLing2 = useRef([]);
 
@@ -72,7 +72,7 @@ function QuestionsChart({ chartData, chartData2, turmas }) {
   }, []);
 
   dadosGrafico?.map((obj,k)=>{
-  filename[k] = `grafico03_${turmas[k]}_linguagens_1.png`;
+  filename[k] = `${escola}grafico03_${turmas[k]}_linguagens_1.png`;
   options[k] = { 
     maintainAspectRatio: false,
      
@@ -117,7 +117,7 @@ function QuestionsChart({ chartData, chartData2, turmas }) {
 
 
 dadosGrafico2?.map((obj,k)=>{
-  filename2[k] = `grafico03_${turmas[k]}_linguagens_2.png`;
+  filename2[k] = `${escola}grafico03_${turmas[k]}_linguagens_2.png`;
   options2[k] = { 
     maintainAspectRatio: false,     
     plugins: {  

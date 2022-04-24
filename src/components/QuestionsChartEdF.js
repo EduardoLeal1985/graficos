@@ -11,7 +11,7 @@ const filename = [];
 
 Chart.register(CategoryScale);
 
-function QuestionsChartEdF({ chartData, turmas }) {
+function QuestionsChartEdF({ chartData, turmas,escola }) {
   let refEdF = useRef([]);
 
   const [dadosGrafico, setDadosGrafico] = useState(chartData);
@@ -45,7 +45,7 @@ function QuestionsChartEdF({ chartData, turmas }) {
   }, []);
 
   dadosGrafico?.map((obj,k)=>{
-  filename[k] = `grafico03_${turmas[k]}_edfisica_1.png`;
+  filename[k] = `${escola}grafico03_${turmas[k]}_edfisica_1.png`;
   options[k] = { 
     maintainAspectRatio: false,
      
