@@ -1396,7 +1396,7 @@ setChartEdFisica(tempEdF);
     <div className="App">
       <div style={{ width: 900, height:'100%' }}>   
       {/* DESCOMENTAR PARA O GRÁFICO 1 - POR ANO */}
-      {/* {userData && <BarChart chartData={userData} escola={escola} />}      */}
+      {userData && <BarChart chartData={userData} escola={escola} />}     
         
         {/* DESCOMENTAR ABAIXO PARA O GRÁFICO 2 - POR TURMA */}
         {porTurma && <PorTurmaChart 
@@ -1414,10 +1414,10 @@ setChartEdFisica(tempEdF);
       </div>
       <div style={{ width: 900 }}>
         {/* DESCOMENTAR ABAIXO GRÁFICO 3 - POR QUESTÃO */}
-        {/* {chartLinguagens && <QuestionsChart chartData={chartLinguagens} chartData2={chartLinguagens2} turmas={turmasArray} escola={escola} />} */}
-        {/* {chartMatematica && <QuestionsChartMat chartData={chartMatematica} chartData2={chartMatematica2} turmas={turmasArray} escola={escola} />} */}
-        {/* {chartArte && <QuestionsChartArt chartData={chartArte} turmas={turmasArray} escola={escola} />} */}
-        {/* {chartEdFisica && <QuestionsChartEdF chartData={chartEdFisica} turmas={turmasArray} escola={escola} />} */}
+        {chartLinguagens && <QuestionsChart chartData={chartLinguagens} chartData2={chartLinguagens2} turmas={turmasArray} escola={escola} />}
+        {chartMatematica && <QuestionsChartMat chartData={chartMatematica} chartData2={chartMatematica2} turmas={turmasArray} escola={escola} />}
+        {chartArte && <QuestionsChartArt chartData={chartArte} turmas={turmasArray} escola={escola} />}
+        {chartEdFisica && <QuestionsChartEdF chartData={chartEdFisica} turmas={turmasArray} escola={escola} />}
         
       </div>
       {/* <div style={{ width: 700 }}>
