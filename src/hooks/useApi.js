@@ -25,9 +25,11 @@ export default function useApi(config) {
 
     let response = null;
 
-    const data = localStorage.getItem(`[@${process.env.REACT_APP_NAME}Token]`)
-      ? localStorage.getItem(`[@${process.env.REACT_APP_NAME}Token]`)
-      : undefined;
+    // const data = localStorage.getItem(`[@${process.env.REACT_APP_NAME}Token]`)
+    //   ? localStorage.getItem(`[@${process.env.REACT_APP_NAME}Token]`)
+    //   : undefined;
+
+    const data = "duedu";
 
     let headers;
 

@@ -40,6 +40,16 @@ function QuestionsChart({ chartData }) {
       legend: {
         display: false,
       },
+      datalabels: {
+        color: '#000',
+        formatter: function (value) {
+          return Math.round(value) + '%';
+        },
+        font: {
+          weight: 'bold',
+          size: 10,
+        }
+      }
     },
     xAxes: [{ticks: {mirror: true}}],
     scales: {

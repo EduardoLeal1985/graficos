@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from "react";
+import React, { useRef, useCallback, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 // import { Chart as ChartJS } from "chart.js/auto";
@@ -9,23 +9,30 @@ import useApi from "../hooks/useApi";
 
 Chart.register(CategoryScale);
 
-function BarChart({ chartData }) {
-  let ref = useRef(null);
+function BarChart({ chartData, escola }) {
+  let ref = useRef([]);
+
+  // console.log(escola);
+  console.log(chartData);
 
   const downloadImage = useCallback(() => {
-    const objB64 = ref.current.toBase64Image();
-    const dataObject = {
-      data: objB64,
-    }
-    enviaGrafico({
-      data: dataObject,
+    ref.current.map((item, key)=>{
+      const objB64 = item.toBase64Image();
+      const dataObject = {
+        data: objB64,
+        filename: `grafico01_${key+1}anos.png`,
+      }
+      enviaGrafico({
+        data: dataObject,
+      });
     });
+    
   }, []);
 
 
   const [enviaGrafico, enviaGraficoInfo] = useApi({
     debounceDelay: 0,
-    url: "/",
+    url: "/api_gabarito/temp/graficos/",
     method: "post",
     onCompleted: (response) => {
       if (!response.error) {
@@ -34,23 +41,50 @@ function BarChart({ chartData }) {
     },
   });
 
-  const options = {    
-    plugins: {
-      legend: {
-        display: false,
-      },
-      text:"REDE",
-    },
-    scales: {
-      y:
-      {
-        min: 0,
-        max: 100,
-        stepSize: 10,
-      },
-    }
-  };
+  const options = [];
 
+  chartData.map((item,key)=>{
+    options[key] = {    
+      maintainAspectRatio: false,
+      plugins: {
+        title: {
+          display: true,
+          text: `${key+1}º ANOS`,
+          padding: {
+              top: 10,
+              bottom: 15
+          },
+          font: {
+            weight: 'bold',
+            size: 16,
+          }
+      },
+        legend: {
+          display: true,
+        },
+        datalabels: {
+          color: '#000',
+          formatter: function (value) {
+            return value + '%';
+          },
+          font: {
+            weight: 'bold',
+            size: 10,
+          }
+        }
+      },
+      scales: {
+        y:
+        {
+          min: 0,
+          max: 100,
+          stepSize: 10,
+        },
+      }
+    };
+  
+  });
+  
   // return <Bar 
   //   data={chartData}
   //   options={options}
@@ -60,8 +94,12 @@ function BarChart({ chartData }) {
   return (
     <div>
       <button type="button" onClick={downloadImage}>Download</button>
-      <div>
-        <Bar ref={ref} data={chartData} options={options} plugins={[ChartDataLabels]} />
+      <div class="chart-container" style={{"position": "relative", "height":"360px", "width":"800px"}}>
+        <Bar ref={el => (ref.current[0] = el)} data={chartData[0]} options={options[0]} plugins={[ChartDataLabels]} />
+        <Bar ref={el => (ref.current[1] = el)} data={chartData[1]} options={options[1]} plugins={[ChartDataLabels]} />
+        <Bar ref={el => (ref.current[2] = el)} data={chartData[2]} options={options[2]} plugins={[ChartDataLabels]} />
+        <Bar ref={el => (ref.current[3] = el)} data={chartData[3]} options={options[3]} plugins={[ChartDataLabels]} />
+        <Bar ref={el => (ref.current[4] = el)} data={chartData[4]} options={options[4]} plugins={[ChartDataLabels]} />
       </div>
     </div>
   );
