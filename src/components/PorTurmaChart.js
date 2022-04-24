@@ -28,7 +28,7 @@ console.log(chartData);
 
   const downloadImage = useCallback(() => {
     ref.current.map((item, key)=>{
-      const objB64 = item.toBase64Image();
+      const objB64 = item?.toBase64Image();
       const dataObject = {
         data: objB64,
         filename: key<= 4 ? `${escola}grafico02_${key+1}anos.png` : `${escola}grafico02_${key-4}anos_2.png`,
@@ -204,11 +204,7 @@ console.log(chartData);
         labels: ['ARTE', 'ED. FÍSICA'],
         datasets: chartData10,
       };
-      console.clear();
-      console.log(objPorTurma.datasets.length);
-      console.log(objPorTurma2.datasets.length);
-      console.log(objPorTurma3.datasets.length);
-      console.log(objPorTurma4.datasets.length);
+
   return (
     <div>
       <button type="button" onClick={downloadImage}>Download</button>
