@@ -148,9 +148,11 @@ const [userData, setUserData] = useState();
   });
 
   useEffect(()=>{
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
     graficosEscola({
       params: {
-        idescola: 238,
+        idescola: urlParams.get('idescola'),
       }
     });
   },[]);
