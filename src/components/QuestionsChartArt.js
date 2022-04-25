@@ -18,7 +18,7 @@ function QuestionsChartArte({ chartData, turmas, escola }) {
 
   const [enviaGrafico, enviaGraficoInfo] = useApi({
     debounceDelay: 0,
-    url: "/api_gabarito/temp/graficos/",
+    url: "/graficos/",
     method: "post",
     onCompleted: (response) => {
       if (!response.error) {

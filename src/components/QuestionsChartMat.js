@@ -32,7 +32,7 @@ function QuestionsChartMat({ chartData, chartData2, turmas, escola }) {
 
   const [enviaGrafico, enviaGraficoInfo] = useApi({
     debounceDelay: 0,
-    url: "/api_gabarito/temp/graficos/",
+    url: "/graficos/",
     method: "post",
     onCompleted: (response) => {
       if (!response.error) {
@@ -117,7 +117,7 @@ function QuestionsChartMat({ chartData, chartData2, turmas, escola }) {
 
 
 dadosGrafico2?.map((obj,k)=>{
-  filename2[k] = `grafico03_${turmas[k]}_matematica_2.png`;
+  filename2[k] = `${escola}grafico03_${turmas[k]}_matematica_2.png`;
   options2[k] = { 
     maintainAspectRatio: false,     
     plugins: {  

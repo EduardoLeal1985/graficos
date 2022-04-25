@@ -833,6 +833,12 @@ const [userData, setUserData] = useState();
           media: o.acertos.q7.rede,
         },
         {
+          id: 8,
+          turma: "Q08",
+          nota: o.acertos.q8.escola,
+          media: o.acertos.q8.rede,
+        },
+        {
           id: 9,
           turma: "Q09",
           nota: o.acertos.q9.escola,
@@ -1058,6 +1064,12 @@ const [userData, setUserData] = useState();
           turma: "Q07",
           nota: o.acertos.q7.escola,
           media: o.acertos.q7.rede,
+        },
+        {
+          id: 8,
+          turma: "Q08",
+          nota: o.acertos.q8.escola,
+          media: o.acertos.q8.rede,
         },
         {
           id: 9,
