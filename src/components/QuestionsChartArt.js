@@ -1,9 +1,7 @@
 import React, { useRef, useCallback, useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import ChartDataLabels from "chartjs-plugin-datalabels";
-// import { Chart as ChartJS } from "chart.js/auto";
-// import { Chart } from 'chart.js';
-import Chart from 'chart.js/auto';
+import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import useApi from "../hooks/useApi";
 
@@ -31,90 +29,98 @@ function QuestionsChartArte({ chartData, turmas, escola }) {
   const options = [];
 
   const downloadImage = useCallback(() => {
-    refArt.current.map((item, key)=>{
+    refArt.current.map((item, key) => {
       const objB64 = item.toBase64Image();
       const dataObject = {
         data: objB64,
         filename: filename[key],
-      }
+      };
       enviaGrafico({
         data: dataObject,
       });
     });
-    
   }, []);
 
-  dadosGrafico?.map((obj,k)=>{
-  filename[k] = `${escola}grafico03_${turmas[k]}_arte_1.png`;
-  options[k] = { 
-    maintainAspectRatio: false,
-     
-    plugins: {
-      title: {
-        display: true,
-        text: `${String(turmas[k]).charAt(0)}º ANO ${String(turmas[k]).charAt(1)} x Desempenho da Rede - ARTE`,
-        padding: {
+  dadosGrafico?.map((obj, k) => {
+    filename[k] = `${escola}grafico03_${turmas[k]}_arte_1.png`;
+    options[k] = {
+      maintainAspectRatio: false,
+
+      plugins: {
+        title: {
+          display: true,
+          text: `${String(turmas[k]).charAt(0)}º ANO ${String(turmas[k]).charAt(
+            1
+          )} x Desempenho da Rede - ARTE`,
+          padding: {
             top: 10,
-            bottom: 15
+            bottom: 15,
+          },
+          font: {
+            weight: "bold",
+            size: 16,
+          },
         },
-        font: {
-          weight: 'bold',
-          size: 16,
-        }
-    },  
-      legend: {
-        display: false,
+        legend: {
+          display: false,
+        },
+        datalabels: {
+          color: "#000",
+          formatter: function (value) {
+            return Math.round(value) + "%";
+          },
+          font: {
+            weight: "bold",
+            size: 10,
+          },
+        },
       },
-      datalabels: {
-        color: '#000',
-        formatter: function (value) {
-          return Math.round(value) + '%';
+      xAxes: [{ ticks: { mirror: true } }],
+      scales: {
+        y: {
+          min: 0,
+          max: 100,
+          stepSize: 20,
         },
-        font: {
-          weight: 'bold',
-          size: 10,
-        }
-      }
-    },
-    xAxes: [{ticks: {mirror: true}}],
-    scales: {
-      y:
-      {
-        min: 0,
-        max: 100,
-        stepSize: 20,
-      }
-    }
-  };
-});
+      },
+    };
+  });
 
-
-  useEffect(()=>{
+  useEffect(() => {
     setDadosGrafico(chartData);
     console.log(dadosGrafico);
-  },[chartData]);
+  }, [chartData]);
 
-  // return <Bar 
-  //   data={chartData}
-  //   options={options}
-  //   ref={ref}
-  // />;
+  useEffect(() => {
+    console.log(dadosGrafico);
+    downloadImage();
+  }, []);
 
   return (
     <div>
-      <button type="button" onClick={downloadImage}>Download</button>
-        {dadosGrafico?.map((obj,k)=>{
-          return (
-            <div>
-              <div class="chart-container" style={{"position": "relative", "height":"240px", "width":"360px"}}>
-                <Bar key={k} ref={el => (refArt.current[k] = el)} data={dadosGrafico[k]} options={options[k]} plugins={[ChartDataLabels]} />
-              </div>              
+      <button type="button" onClick={downloadImage}>
+        Download
+      </button>
+      {dadosGrafico?.map((obj, k) => {
+        return (
+          <div>
+            <div
+              class="chart-container"
+              style={{ position: "relative", height: "240px", width: "360px" }}
+            >
+              <Bar
+                key={k}
+                ref={(el) => (refArt.current[k] = el)}
+                data={dadosGrafico[k]}
+                options={options[k]}
+                plugins={[ChartDataLabels]}
+              />
             </div>
-          );
-        })}
-            {/* <Bar ref={el => (ref.current[0] = el)} data={dadosGrafico[0]} options={options} plugins={[ChartDataLabels]} />           
+          </div>
+        );
+      })}
+      {/* <Bar ref={el => (ref.current[0] = el)} data={dadosGrafico[0]} options={options} plugins={[ChartDataLabels]} />           
             <Bar ref={el => (ref.current[1] = el)} data={dadosGrafico[1]} options={options} plugins={[ChartDataLabels]} />            */}
-
     </div>
   );
 }

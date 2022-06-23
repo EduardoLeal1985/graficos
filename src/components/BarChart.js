@@ -1,9 +1,7 @@
-import React, { useRef, useCallback, useState } from "react";
+import React, { useRef, useCallback, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import ChartDataLabels from "chartjs-plugin-datalabels";
-// import { Chart as ChartJS } from "chart.js/auto";
-// import { Chart } from 'chart.js';
-import Chart from 'chart.js/auto';
+import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import useApi from "../hooks/useApi";
 
@@ -16,19 +14,17 @@ function BarChart({ chartData, escola }) {
   console.log(chartData);
 
   const downloadImage = useCallback(() => {
-    ref.current.map((item, key)=>{
+    ref.current.map((item, key) => {
       const objB64 = item.toBase64Image();
       const dataObject = {
         data: objB64,
-        filename: `${escola}grafico01_${key+1}anos.png`,
-      }
+        filename: `${escola}grafico01_${key + 1}anos.png`,
+      };
       enviaGrafico({
         data: dataObject,
       });
     });
-    
   }, []);
-
 
   const [enviaGrafico, enviaGraficoInfo] = useApi({
     debounceDelay: 0,
@@ -43,49 +39,51 @@ function BarChart({ chartData, escola }) {
 
   const options = [];
 
-  chartData.map((item,key)=>{
-    options[key] = {    
+  chartData.map((item, key) => {
+    options[key] = {
       maintainAspectRatio: false,
       plugins: {
         title: {
           display: true,
-          text: `${key+1}º ANOS`,
+          text: `${key + 1}º ANOS`,
           padding: {
-              top: 10,
-              bottom: 15
+            top: 10,
+            bottom: 15,
           },
           font: {
-            weight: 'bold',
+            weight: "bold",
             size: 16,
-          }
-      },
+          },
+        },
         legend: {
           display: true,
         },
         datalabels: {
-          color: '#000',
+          color: "#000",
           formatter: function (value) {
-            return value + '%';
+            return value + "%";
           },
           font: {
-            weight: 'bold',
+            weight: "bold",
             size: 10,
-          }
-        }
+          },
+        },
       },
       scales: {
-        y:
-        {
+        y: {
           min: 0,
           max: 100,
           stepSize: 10,
         },
-      }
+      },
     };
-  
   });
-  
-  // return <Bar 
+
+  useEffect(() => {
+    downloadImage();
+  }, []);
+
+  // return <Bar
   //   data={chartData}
   //   options={options}
   //   ref={ref}
@@ -93,32 +91,74 @@ function BarChart({ chartData, escola }) {
 
   return (
     <div>
-      <button type="button" onClick={downloadImage}>Download</button>
-      {chartData[0].datasets[0].data[0] && 
-        <div class="chart-container" style={{"position": "relative", "height":"360px", "width":"800px"}}>
-          <Bar ref={el => (ref.current[0] = el)} data={chartData[0]} options={options[0]} plugins={[ChartDataLabels]} />
-        </div> 
-      }
-      {chartData[1].datasets[0].data[0] && 
-        <div class="chart-container" style={{"position": "relative", "height":"360px", "width":"800px"}}>
-          <Bar ref={el => (ref.current[1] = el)} data={chartData[1]} options={options[1]} plugins={[ChartDataLabels]} />
+      <button type="button" onClick={downloadImage}>
+        Download
+      </button>
+      {chartData[0].datasets[0].data[0] && (
+        <div
+          class="chart-container"
+          style={{ position: "relative", height: "360px", width: "800px" }}
+        >
+          <Bar
+            ref={(el) => (ref.current[0] = el)}
+            data={chartData[0]}
+            options={options[0]}
+            plugins={[ChartDataLabels]}
+          />
         </div>
-      }
-      {chartData[2].datasets[0].data[0] && 
-        <div class="chart-container" style={{"position": "relative", "height":"360px", "width":"800px"}}>
-          <Bar ref={el => (ref.current[2] = el)} data={chartData[2]} options={options[2]} plugins={[ChartDataLabels]} />
+      )}
+      {chartData[1].datasets[0].data[0] && (
+        <div
+          class="chart-container"
+          style={{ position: "relative", height: "360px", width: "800px" }}
+        >
+          <Bar
+            ref={(el) => (ref.current[1] = el)}
+            data={chartData[1]}
+            options={options[1]}
+            plugins={[ChartDataLabels]}
+          />
         </div>
-      }
-      {chartData[3].datasets[0].data[0] && 
-        <div class="chart-container" style={{"position": "relative", "height":"360px", "width":"800px"}}>
-          <Bar ref={el => (ref.current[3] = el)} data={chartData[3]} options={options[3]} plugins={[ChartDataLabels]} />
+      )}
+      {chartData[2].datasets[0].data[0] && (
+        <div
+          class="chart-container"
+          style={{ position: "relative", height: "360px", width: "800px" }}
+        >
+          <Bar
+            ref={(el) => (ref.current[2] = el)}
+            data={chartData[2]}
+            options={options[2]}
+            plugins={[ChartDataLabels]}
+          />
         </div>
-      }
-      {chartData[4].datasets[0].data[0] && 
-        <div class="chart-container" style={{"position": "relative", "height":"360px", "width":"800px"}}>
-          <Bar ref={el => (ref.current[4] = el)} data={chartData[4]} options={options[4]} plugins={[ChartDataLabels]} />
+      )}
+      {chartData[3].datasets[0].data[0] && (
+        <div
+          class="chart-container"
+          style={{ position: "relative", height: "360px", width: "800px" }}
+        >
+          <Bar
+            ref={(el) => (ref.current[3] = el)}
+            data={chartData[3]}
+            options={options[3]}
+            plugins={[ChartDataLabels]}
+          />
         </div>
-      }
+      )}
+      {chartData[4].datasets[0].data[0] && (
+        <div
+          class="chart-container"
+          style={{ position: "relative", height: "360px", width: "800px" }}
+        >
+          <Bar
+            ref={(el) => (ref.current[4] = el)}
+            data={chartData[4]}
+            options={options[4]}
+            plugins={[ChartDataLabels]}
+          />
+        </div>
+      )}
     </div>
   );
 }
