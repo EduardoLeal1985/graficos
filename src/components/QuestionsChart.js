@@ -54,16 +54,16 @@ function QuestionsChart({ chartData, chartData2, turmas, escola }) {
       });
     });
 
-    refLing2.current.map((item, key) => {
-      const objB64 = item.toBase64Image();
-      const dataObject = {
-        data: objB64,
-        filename: filename2[key],
-      };
-      enviaGrafico({
-        data: dataObject,
-      });
-    });
+    // refLing2.current.map((item, key) => {
+    //   const objB64 = item.toBase64Image();
+    //   const dataObject = {
+    //     data: objB64,
+    //     filename: filename2[key],
+    //   };
+    //   enviaGrafico({
+    //     data: dataObject,
+    //   });
+    // });
   }, []);
 
   dadosGrafico?.map((obj, k) => {
@@ -111,44 +111,44 @@ function QuestionsChart({ chartData, chartData2, turmas, escola }) {
     };
   });
 
-  dadosGrafico2?.map((obj, k) => {
-    filename2[k] = `${escola}grafico03_${turmas[k]}_linguagens_2.png`;
-    options2[k] = {
-      maintainAspectRatio: false,
-      plugins: {
-        legend: {
-          display: false,
-        },
-        datalabels: {
-          color: "#000",
-          formatter: function (value) {
-            return Math.round(value) + "%";
-          },
-          font: {
-            weight: "bold",
-            size: 10,
-          },
-        },
-      },
-      xAxes: [{ ticks: { mirror: true } }],
-      scales: {
-        y: {
-          min: 0,
-          max: 100,
-          stepSize: 20,
-        },
-      },
-    };
-  });
+  // dadosGrafico2?.map((obj, k) => {
+  //   filename2[k] = `${escola}grafico03_${turmas[k]}_linguagens_2.png`;
+  //   options2[k] = {
+  //     maintainAspectRatio: false,
+  //     plugins: {
+  //       legend: {
+  //         display: false,
+  //       },
+  //       datalabels: {
+  //         color: "#000",
+  //         formatter: function (value) {
+  //           return Math.round(value) + "%";
+  //         },
+  //         font: {
+  //           weight: "bold",
+  //           size: 10,
+  //         },
+  //       },
+  //     },
+  //     xAxes: [{ ticks: { mirror: true } }],
+  //     scales: {
+  //       y: {
+  //         min: 0,
+  //         max: 100,
+  //         stepSize: 20,
+  //       },
+  //     },
+  //   };
+  // });
 
   useEffect(() => {
     setDadosGrafico(chartData);
-    setDadosGrafico2(chartData2);
-  }, [chartData, chartData2]);
+    // setDadosGrafico2(chartData2);
+  }, [chartData]);
 
   useEffect(() => {
     console.log(dadosGrafico);
-    console.log(dadosGrafico2);
+    // console.log(dadosGrafico2);
     downloadImage();
   }, []);
 
@@ -172,7 +172,7 @@ function QuestionsChart({ chartData, chartData2, turmas, escola }) {
                 plugins={[ChartDataLabels]}
               />
             </div>
-            <div
+            {/* <div
               class="chart-container"
               style={{ position: "relative", height: "210px", width: "800px" }}
             >
@@ -183,7 +183,7 @@ function QuestionsChart({ chartData, chartData2, turmas, escola }) {
                 options={options2[k]}
                 plugins={[ChartDataLabels]}
               />
-            </div>
+            </div> */}
           </div>
         );
       })}

@@ -8,14 +8,14 @@ import useApi from "../hooks/useApi";
 Chart.register(CategoryScale);
 
 const filename = [];
-const filename2 = [];
+// const filename2 = [];
 
 function QuestionsChartMat({ chartData, chartData2, turmas, escola }) {
   let refMat = useRef([]);
-  let refMat2 = useRef([]);
+  // let refMat2 = useRef([]);
 
   const [dadosGrafico, setDadosGrafico] = useState(chartData);
-  const [dadosGrafico2, setDadosGrafico2] = useState(chartData2);
+  // const [dadosGrafico2, setDadosGrafico2] = useState(chartData2);
 
   // const downloadImage = useCallback(() => {
   //   const objB64 = ref.current.toBase64Image();
@@ -40,7 +40,7 @@ function QuestionsChartMat({ chartData, chartData2, turmas, escola }) {
 
   console.log(turmas);
   const options = [];
-  const options2 = [];
+  // const options2 = [];
 
   const downloadImage = useCallback(() => {
     refMat.current.map((item, key) => {
@@ -54,16 +54,16 @@ function QuestionsChartMat({ chartData, chartData2, turmas, escola }) {
       });
     });
 
-    refMat2.current.map((item, key) => {
-      const objB64 = item.toBase64Image();
-      const dataObject = {
-        data: objB64,
-        filename: filename2[key],
-      };
-      enviaGrafico({
-        data: dataObject,
-      });
-    });
+    // refMat2.current.map((item, key) => {
+    //   const objB64 = item.toBase64Image();
+    //   const dataObject = {
+    //     data: objB64,
+    //     filename: filename2[key],
+    //   };
+    //   enviaGrafico({
+    //     data: dataObject,
+    //   });
+    // });
   }, []);
 
   dadosGrafico?.map((obj, k) => {
@@ -111,44 +111,44 @@ function QuestionsChartMat({ chartData, chartData2, turmas, escola }) {
     };
   });
 
-  dadosGrafico2?.map((obj, k) => {
-    filename2[k] = `grafico03_${turmas[k]}_matematica_2.png`;
-    options2[k] = {
-      maintainAspectRatio: false,
-      plugins: {
-        legend: {
-          display: false,
-        },
-        datalabels: {
-          color: "#000",
-          formatter: function (value) {
-            return Math.round(value) + "%";
-          },
-          font: {
-            weight: "bold",
-            size: 10,
-          },
-        },
-      },
-      xAxes: [{ ticks: { mirror: true } }],
-      scales: {
-        y: {
-          min: 0,
-          max: 100,
-          stepSize: 20,
-        },
-      },
-    };
-  });
+  // dadosGrafico2?.map((obj, k) => {
+  //   filename2[k] = `grafico03_${turmas[k]}_matematica_2.png`;
+  //   options2[k] = {
+  //     maintainAspectRatio: false,
+  //     plugins: {
+  //       legend: {
+  //         display: false,
+  //       },
+  //       datalabels: {
+  //         color: "#000",
+  //         formatter: function (value) {
+  //           return Math.round(value) + "%";
+  //         },
+  //         font: {
+  //           weight: "bold",
+  //           size: 10,
+  //         },
+  //       },
+  //     },
+  //     xAxes: [{ ticks: { mirror: true } }],
+  //     scales: {
+  //       y: {
+  //         min: 0,
+  //         max: 100,
+  //         stepSize: 20,
+  //       },
+  //     },
+  //   };
+  // });
 
   useEffect(() => {
     setDadosGrafico(chartData);
-    setDadosGrafico2(chartData2);
+    // setDadosGrafico2(chartData2);
   }, [chartData, chartData2]);
 
   useEffect(() => {
     console.log(dadosGrafico);
-    console.log(dadosGrafico2);
+    // console.log(dadosGrafico2);
     downloadImage();
   }, []);
 
@@ -172,7 +172,7 @@ function QuestionsChartMat({ chartData, chartData2, turmas, escola }) {
                 plugins={[ChartDataLabels]}
               />
             </div>
-            <div
+            {/* <div
               class="chart-container"
               style={{ position: "relative", height: "210px", width: "800px" }}
             >
@@ -183,7 +183,7 @@ function QuestionsChartMat({ chartData, chartData2, turmas, escola }) {
                 options={options2[k]}
                 plugins={[ChartDataLabels]}
               />
-            </div>
+            </div> */}
           </div>
         );
       })}

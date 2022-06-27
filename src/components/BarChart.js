@@ -45,7 +45,7 @@ function BarChart({ chartData, escola }) {
       plugins: {
         title: {
           display: true,
-          text: `${key + 1}º ANOS`,
+          text: `${key + 1}º TERMOS`,
           padding: {
             top: 10,
             bottom: 15,
@@ -146,7 +146,7 @@ function BarChart({ chartData, escola }) {
           />
         </div>
       )}
-      {chartData[4].datasets[0].data[0] && (
+      {/* {chartData[4].datasets[0].data[0] && (
         <div
           class="chart-container"
           style={{ position: "relative", height: "360px", width: "800px" }}
@@ -158,7 +158,7 @@ function BarChart({ chartData, escola }) {
             plugins={[ChartDataLabels]}
           />
         </div>
-      )}
+      )} */}
     </div>
   );
 }

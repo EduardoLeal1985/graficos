@@ -100,7 +100,7 @@ function PorTurmaChart({
   //   options={options}
   //   ref={ref}
   // />;
-  const vetorpadrao = [0, 1, 2, 3, 4];
+  const vetorpadrao = [0, 1, 2, 3];
   const options = [];
 
   vetorpadrao.map((item, key) => {
@@ -109,7 +109,7 @@ function PorTurmaChart({
       plugins: {
         title: {
           display: true,
-          text: `${key + 1}º ANOS`,
+          text: `${key + 1}º TERMOS`,
           padding: {
             top: 10,
             bottom: 15,
@@ -181,26 +181,26 @@ function PorTurmaChart({
     labels: ["LINGUAGENS", "MATEMÁTICA"],
     datasets: chartData5,
   };
-  const objPorTurma6 = {
-    labels: ["ARTE", "ED. FÍSICA"],
-    datasets: chartData6,
-  };
-  const objPorTurma7 = {
-    labels: ["ARTE", "ED. FÍSICA"],
-    datasets: chartData7,
-  };
-  const objPorTurma8 = {
-    labels: ["ARTE", "ED. FÍSICA"],
-    datasets: chartData8,
-  };
-  const objPorTurma9 = {
-    labels: ["ARTE", "ED. FÍSICA"],
-    datasets: chartData9,
-  };
-  const objPorTurma10 = {
-    labels: ["ARTE", "ED. FÍSICA"],
-    datasets: chartData10,
-  };
+  // const objPorTurma6 = {
+  //   labels: ["ARTE", "ED. FÍSICA"],
+  //   datasets: chartData6,
+  // };
+  // const objPorTurma7 = {
+  //   labels: ["ARTE", "ED. FÍSICA"],
+  //   datasets: chartData7,
+  // };
+  // const objPorTurma8 = {
+  //   labels: ["ARTE", "ED. FÍSICA"],
+  //   datasets: chartData8,
+  // };
+  // const objPorTurma9 = {
+  //   labels: ["ARTE", "ED. FÍSICA"],
+  //   datasets: chartData9,
+  // };
+  // const objPorTurma10 = {
+  //   labels: ["ARTE", "ED. FÍSICA"],
+  //   datasets: chartData10,
+  // };
 
   useEffect(() => {
     downloadImage();
@@ -263,7 +263,7 @@ function PorTurmaChart({
           />
         </div>
       )}
-      {objPorTurma5.datasets.length > 1 && (
+      {/* {objPorTurma5.datasets.length > 1 && (
         <div
           class="chart-container"
           style={{ position: "relative", height: "360px", width: "800px" }}
@@ -275,8 +275,8 @@ function PorTurmaChart({
             plugins={[ChartDataLabels]}
           />
         </div>
-      )}
-      {objPorTurma6.datasets.length > 1 && (
+      )} */}
+      {/* {objPorTurma6.datasets.length > 1 && (
         <div
           class="chart-container"
           style={{ position: "relative", height: "360px", width: "800px" }}
@@ -340,7 +340,7 @@ function PorTurmaChart({
             plugins={[ChartDataLabels]}
           />
         </div>
-      )}
+      )} */}
     </div>
   );
 }
