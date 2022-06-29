@@ -74,9 +74,9 @@ function QuestionsChartMat({ chartData, chartData2, turmas, escola }) {
       plugins: {
         title: {
           display: true,
-          text: `${String(turmas[k]).charAt(0)}º ANO ${String(turmas[k]).charAt(
+          text: `${String(turmas[k]).charAt(0)}º TERMO ${String(turmas[k]).charAt(
             1
-          )} x Desempenho da Rede - MATEMÁTICA`,
+          )}${String(turmas[k]).charAt(2)} x Desempenho da Rede - MATEMÁTICA`,
           padding: {
             top: 10,
             bottom: 15,
@@ -155,7 +155,7 @@ function QuestionsChartMat({ chartData, chartData2, turmas, escola }) {
   return (
     <div>
       <button type="button" onClick={downloadImage}>
-        Download
+        Download 04
       </button>
       {dadosGrafico?.map((obj, k) => {
         return (

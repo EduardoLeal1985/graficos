@@ -18,7 +18,7 @@ function BarChart({ chartData, escola }) {
       const objB64 = item.toBase64Image();
       const dataObject = {
         data: objB64,
-        filename: `${escola}grafico01_${key + 1}anos.png`,
+        filename: `${escola}grafico01_${key + 1}termos.png`,
       };
       enviaGrafico({
         data: dataObject,
@@ -92,7 +92,7 @@ function BarChart({ chartData, escola }) {
   return (
     <div>
       <button type="button" onClick={downloadImage}>
-        Download
+        Download 01
       </button>
       {chartData[0].datasets[0].data[0] && (
         <div

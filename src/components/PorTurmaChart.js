@@ -31,8 +31,8 @@ function PorTurmaChart({
         data: objB64,
         filename:
           key <= 4
-            ? `${escola}grafico02_${key + 1}anos.png`
-            : `${escola}grafico02_${key - 4}anos_2.png`,
+            ? `${escola}grafico02_${key + 1}termos.png`
+            : `${escola}grafico02_${key - 4}termos_2.png`,
       };
       enviaGrafico({
         data: dataObject,
@@ -162,23 +162,23 @@ function PorTurmaChart({
   // };
 
   const objPorTurma = {
-    labels: ["LINGUAGENS", "MATEMÁTICA"],
+    labels: ["LÍNGUA PORTUGUESA", "MATEMÁTICA"],
     datasets: chartData,
   };
   const objPorTurma2 = {
-    labels: ["LINGUAGENS", "MATEMÁTICA"],
+    labels: ["LÍNGUA PORTUGUESA", "MATEMÁTICA"],
     datasets: chartData2,
   };
   const objPorTurma3 = {
-    labels: ["LINGUAGENS", "MATEMÁTICA"],
+    labels: ["LÍNGUA PORTUGUESA", "MATEMÁTICA"],
     datasets: chartData3,
   };
   const objPorTurma4 = {
-    labels: ["LINGUAGENS", "MATEMÁTICA"],
+    labels: ["LÍNGUA PORTUGUESA", "MATEMÁTICA"],
     datasets: chartData4,
   };
   const objPorTurma5 = {
-    labels: ["LINGUAGENS", "MATEMÁTICA"],
+    labels: ["LÍNGUA PORTUGUESA", "MATEMÁTICA"],
     datasets: chartData5,
   };
   // const objPorTurma6 = {
@@ -209,7 +209,7 @@ function PorTurmaChart({
   return (
     <div>
       <button type="button" onClick={downloadImage}>
-        Download
+        Download 02
       </button>
       {objPorTurma.datasets.length > 1 && (
         <div
