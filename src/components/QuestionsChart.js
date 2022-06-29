@@ -76,7 +76,7 @@ function QuestionsChart({ chartData, chartData2, turmas, escola }) {
           display: true,
           text: `${String(turmas[k]).charAt(0)}º ANO ${String(turmas[k]).charAt(
             1
-          )} x Desempenho da Rede - LINGUAGENS`,
+          )} x Desempenho da Rede - LÍNGUA PORTUGUESA`,
           padding: {
             top: 10,
             bottom: 15,

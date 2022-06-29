@@ -172,7 +172,7 @@ const [userData, setUserData] = useState();
 
   const [graficosEscola, graficosEscolaInfo] = useApi({
     debounceDelay:0,
-    url: 'relatorio/get_percentuais/',
+    url: 'https://api.duedu.website/relatorio/get_percentuais/',
     method: 'get',
     onCompleted: (response) => {
       if (!response.error) {
@@ -199,7 +199,7 @@ const [userData, setUserData] = useState();
       dg[0] = [
         {
           id: 1,
-          turma: "LINGUAGENS",
+          turma: "LÍNGUA PORTUGUESA",
           nota: dadosGraficos?.porAno.a1.linguagens.escola,
           media: dadosGraficos?.porAno.a1.linguagens.rede,
         },
@@ -226,7 +226,7 @@ const [userData, setUserData] = useState();
       dg[1] = [
         {
           id: 1,
-          turma: "LINGUAGENS",
+          turma: "LÍNGUA PORTUGUESA",
           nota: dadosGraficos?.porAno.a2.linguagens.escola,
           media: dadosGraficos?.porAno.a2.linguagens.rede,
         },
@@ -253,7 +253,7 @@ const [userData, setUserData] = useState();
       dg[2] = [
         {
           id: 1,
-          turma: "LINGUAGENS",
+          turma: "LÍNGUA PORTUGUESA",
           nota: dadosGraficos?.porAno.a3.linguagens.escola,
           media: dadosGraficos?.porAno.a3.linguagens.rede,
         },
@@ -280,7 +280,7 @@ const [userData, setUserData] = useState();
       dg[3] = [
         {
           id: 1,
-          turma: "LINGUAGENS",
+          turma: "LÍNGUA PORTUGUESA",
           nota: dadosGraficos?.porAno.a4.linguagens.escola,
           media: dadosGraficos?.porAno.a4.linguagens.rede,
         },
@@ -307,7 +307,7 @@ const [userData, setUserData] = useState();
       dg[4] = [
         {
           id: 1,
-          turma: "LINGUAGENS",
+          turma: "LÍNGUA PORTUGUESA",
           nota: dadosGraficos?.porAno.a5.linguagens.escola,
           media: dadosGraficos?.porAno.a5.linguagens.rede,
         },

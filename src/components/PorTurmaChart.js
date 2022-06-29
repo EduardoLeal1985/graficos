@@ -147,7 +147,7 @@ function PorTurmaChart({
   //   labels: ['REDE', '1A', '1B', '1C'],
   //   datasets: [
   //     {
-  //       label: 'LINGUAGENS',
+  //       label: 'LÍNGUA PORTUGUESA',
   //       data: [59.2,61, 65, 60],
   //       backgroundColor: ['#7F7F7F', '#5B9BD5', '#ED7D31', '#E763D7'],
   //       borderColor: "black",
@@ -162,23 +162,23 @@ function PorTurmaChart({
   // };
 
   const objPorTurma = {
-    labels: ["LINGUAGENS", "MATEMÁTICA"],
+    labels: ["LÍNGUA PORTUGUESA", "MATEMÁTICA"],
     datasets: chartData,
   };
   const objPorTurma2 = {
-    labels: ["LINGUAGENS", "MATEMÁTICA"],
+    labels: ["LÍNGUA PORTUGUESA", "MATEMÁTICA"],
     datasets: chartData2,
   };
   const objPorTurma3 = {
-    labels: ["LINGUAGENS", "MATEMÁTICA"],
+    labels: ["LÍNGUA PORTUGUESA", "MATEMÁTICA"],
     datasets: chartData3,
   };
   const objPorTurma4 = {
-    labels: ["LINGUAGENS", "MATEMÁTICA"],
+    labels: ["LÍNGUA PORTUGUESA", "MATEMÁTICA"],
     datasets: chartData4,
   };
   const objPorTurma5 = {
-    labels: ["LINGUAGENS", "MATEMÁTICA"],
+    labels: ["LÍNGUA PORTUGUESA", "MATEMÁTICA"],
     datasets: chartData5,
   };
   const objPorTurma6 = {
