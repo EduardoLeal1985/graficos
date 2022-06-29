@@ -23,28 +23,28 @@ const colorArray = [
 let rotulo = [];
 let notasLinguagem = [];
 let notasMatematica = [];
-let notasArte = [];
-let notasEdFisica = [];
+// let notasArte = [];
+// let notasEdFisica = [];
 let rotulo2 = [];
 let notasLinguagem2 = [];
 let notasMatematica2 = [];
-let notasArte2 = [];
-let notasEdFisica2 = [];
+// let notasArte2 = [];
+// let notasEdFisica2 = [];
 let rotulo3 = [];
 let notasLinguagem3 = [];
 let notasMatematica3 = [];
-let notasArte3 = [];
-let notasEdFisica3 = [];
+// let notasArte3 = [];
+// let notasEdFisica3 = [];
 let rotulo4 = [];
 let notasLinguagem4 = [];
 let notasMatematica4 = [];
-let notasArte4 = [];
-let notasEdFisica4 = [];
+// let notasArte4 = [];
+// let notasEdFisica4 = [];
 let rotulo5 = [];
 let notasLinguagem5 = [];
 let notasMatematica5 = [];
-let notasArte5 = [];
-let notasEdFisica5 = [];
+// let notasArte5 = [];
+// let notasEdFisica5 = [];
 
 function App() {
   const [dadosGraficos, setDadosGraficos] = useState();
@@ -156,8 +156,8 @@ const [userData, setUserData] = useState();
   const [chartLinguagens2, setChartLinguagens2] = useState([]);
   const [chartMatematica, setChartMatematica] = useState([]);
   const [chartMatematica2, setChartMatematica2] = useState([]);
-  const [chartArte, setChartArte] = useState([]);
-  const [chartEdFisica, setChartEdFisica] = useState([]);
+  // const [chartArte, setChartArte] = useState([]);
+  // const [chartEdFisica, setChartEdFisica] = useState([]);
   // const [porAno, setPorAno] = useState();
   const [porTurma, setPorTurma] = useState();
   const [porTurma2, setPorTurma2] = useState();
@@ -209,18 +209,18 @@ const [userData, setUserData] = useState();
           nota: dadosGraficos?.porAno.a1.matematica.escola,
           media: dadosGraficos?.porAno.a1.matematica.rede,
         },
-        {
-          id: 3,
-          turma: "ARTES",
-          nota: dadosGraficos?.porAno.a1.arte.escola,
-          media: dadosGraficos?.porAno.a1.arte.rede,
-        },
-        {
-          id: 4,
-          turma: "ED. FÍSICA",
-          nota: dadosGraficos?.porAno.a1.ed_fisica.escola,
-          media: dadosGraficos?.porAno.a1.ed_fisica.rede,
-        },
+        // {
+        //   id: 3,
+        //   turma: "ARTES",
+        //   nota: dadosGraficos?.porAno.a1.arte.escola,
+        //   media: dadosGraficos?.porAno.a1.arte.rede,
+        // },
+        // {
+        //   id: 4,
+        //   turma: "ED. FÍSICA",
+        //   nota: dadosGraficos?.porAno.a1.ed_fisica.escola,
+        //   media: dadosGraficos?.porAno.a1.ed_fisica.rede,
+        // },
       ];
 
       dg[1] = [
@@ -236,18 +236,18 @@ const [userData, setUserData] = useState();
           nota: dadosGraficos?.porAno.a2.matematica.escola,
           media: dadosGraficos?.porAno.a2.matematica.rede,
         },
-        {
-          id: 3,
-          turma: "ARTES",
-          nota: dadosGraficos?.porAno.a2.arte.escola,
-          media: dadosGraficos?.porAno.a2.arte.rede,
-        },
-        {
-          id: 4,
-          turma: "ED. FÍSICA",
-          nota: dadosGraficos?.porAno.a2.ed_fisica.escola,
-          media: dadosGraficos?.porAno.a2.ed_fisica.rede,
-        },
+        // {
+        //   id: 3,
+        //   turma: "ARTES",
+        //   nota: dadosGraficos?.porAno.a2.arte.escola,
+        //   media: dadosGraficos?.porAno.a2.arte.rede,
+        // },
+        // {
+        //   id: 4,
+        //   turma: "ED. FÍSICA",
+        //   nota: dadosGraficos?.porAno.a2.ed_fisica.escola,
+        //   media: dadosGraficos?.porAno.a2.ed_fisica.rede,
+        // },
       ];
 
       dg[2] = [
@@ -263,18 +263,18 @@ const [userData, setUserData] = useState();
           nota: dadosGraficos?.porAno.a3.matematica.escola,
           media: dadosGraficos?.porAno.a3.matematica.rede,
         },
-        {
-          id: 3,
-          turma: "ARTES",
-          nota: dadosGraficos?.porAno.a3.arte.escola,
-          media: dadosGraficos?.porAno.a3.arte.rede,
-        },
-        {
-          id: 4,
-          turma: "ED. FÍSICA",
-          nota: dadosGraficos?.porAno.a3.ed_fisica.escola,
-          media: dadosGraficos?.porAno.a3.ed_fisica.rede,
-        },
+        // {
+        //   id: 3,
+        //   turma: "ARTES",
+        //   nota: dadosGraficos?.porAno.a3.arte.escola,
+        //   media: dadosGraficos?.porAno.a3.arte.rede,
+        // },
+        // {
+        //   id: 4,
+        //   turma: "ED. FÍSICA",
+        //   nota: dadosGraficos?.porAno.a3.ed_fisica.escola,
+        //   media: dadosGraficos?.porAno.a3.ed_fisica.rede,
+        // },
       ];
 
       dg[3] = [
@@ -290,18 +290,18 @@ const [userData, setUserData] = useState();
           nota: dadosGraficos?.porAno.a4.matematica.escola,
           media: dadosGraficos?.porAno.a4.matematica.rede,
         },
-        {
-          id: 3,
-          turma: "ARTES",
-          nota: dadosGraficos?.porAno.a4.arte.escola,
-          media: dadosGraficos?.porAno.a4.arte.rede,
-        },
-        {
-          id: 4,
-          turma: "ED. FÍSICA",
-          nota: dadosGraficos?.porAno.a4.ed_fisica.escola,
-          media: dadosGraficos?.porAno.a4.ed_fisica.rede,
-        },
+        // {
+        //   id: 3,
+        //   turma: "ARTES",
+        //   nota: dadosGraficos?.porAno.a4.arte.escola,
+        //   media: dadosGraficos?.porAno.a4.arte.rede,
+        // },
+        // {
+        //   id: 4,
+        //   turma: "ED. FÍSICA",
+        //   nota: dadosGraficos?.porAno.a4.ed_fisica.escola,
+        //   media: dadosGraficos?.porAno.a4.ed_fisica.rede,
+        // },
       ];
     
       dg[4] = [
@@ -317,18 +317,18 @@ const [userData, setUserData] = useState();
           nota: dadosGraficos?.porAno.a5.matematica.escola,
           media: dadosGraficos?.porAno.a5.matematica.rede,
         },
-        {
-          id: 3,
-          turma: "ARTES",
-          nota: dadosGraficos?.porAno.a5.arte.escola,
-          media: dadosGraficos?.porAno.a5.arte.rede,
-        },
-        {
-          id: 4,
-          turma: "ED. FÍSICA",
-          nota: dadosGraficos?.porAno.a5.ed_fisica.escola,
-          media: dadosGraficos?.porAno.a5.ed_fisica.rede,
-        },
+        // {
+        //   id: 3,
+        //   turma: "ARTES",
+        //   nota: dadosGraficos?.porAno.a5.arte.escola,
+        //   media: dadosGraficos?.porAno.a5.arte.rede,
+        // },
+        // {
+        //   id: 4,
+        //   turma: "ED. FÍSICA",
+        //   nota: dadosGraficos?.porAno.a5.ed_fisica.escola,
+        //   media: dadosGraficos?.porAno.a5.ed_fisica.rede,
+        // },
       ];
 
       dg.map((o,k)=>{
@@ -402,12 +402,12 @@ const [userData, setUserData] = useState();
     dadosGraficos?.porTurma.a1.escola[1].matematica.map((i,k)=>{
       notasMatematica[k] = i.nota;
     });
-    dadosGraficos?.porTurma.a1.escola[2].arte.map((i,k)=>{
-      notasArte[k] = i.nota;
-    });    
-    dadosGraficos?.porTurma.a1.escola[3].edFisica.map((i,k)=>{
-      notasEdFisica[k] = i.nota;
-    });
+    // dadosGraficos?.porTurma.a1.escola[2].arte.map((i,k)=>{
+    //   notasArte[k] = i.nota;
+    // });    
+    // dadosGraficos?.porTurma.a1.escola[3].edFisica.map((i,k)=>{
+    //   notasEdFisica[k] = i.nota;
+    // });
 
       rotulo.map((item,key)=>{
         dataSetsPorTurma[key] =  {
@@ -423,18 +423,18 @@ const [userData, setUserData] = useState();
             }
           }
 
-          dataSetsPorTurma6[key] =  {
-            label: item,
-            data: [notasArte[key],notasEdFisica[key]],
-            backgroundColor: [turmaColors[key], turmaColors[key]],
-            borderColor: "black",
-            borderWidth: 1,
-            datalabels: {
-              color: "black",
-              anchor: "end",
-              align: "top"
-            }
-          }
+          // dataSetsPorTurma6[key] =  {
+          //   label: item,
+          //   data: [notasArte[key],notasEdFisica[key]],
+          //   backgroundColor: [turmaColors[key], turmaColors[key]],
+          //   borderColor: "black",
+          //   borderWidth: 1,
+          //   datalabels: {
+          //     color: "black",
+          //     anchor: "end",
+          //     align: "top"
+          //   }
+          // }
       });
 
 // 2 ANO
@@ -450,12 +450,12 @@ const [userData, setUserData] = useState();
     dadosGraficos?.porTurma.a2.escola[1].matematica.map((a,q)=>{
       notasMatematica2[q] = a.nota;
     });
-    dadosGraficos?.porTurma.a2.escola[2].arte.map((a,q)=>{
-      notasArte2[q] = a.nota;
-    });    
-    dadosGraficos?.porTurma.a2.escola[3].edFisica.map((a,q)=>{
-      notasEdFisica2[q] = a.nota;
-    });
+    // dadosGraficos?.porTurma.a2.escola[2].arte.map((a,q)=>{
+    //   notasArte2[q] = a.nota;
+    // });    
+    // dadosGraficos?.porTurma.a2.escola[3].edFisica.map((a,q)=>{
+    //   notasEdFisica2[q] = a.nota;
+    // });
     console.log(notasLinguagem2);
 
       rotulo2.map((item,key)=>{
@@ -472,18 +472,18 @@ const [userData, setUserData] = useState();
             }
         }
 
-        dataSetsPorTurma7[key] =  {
-          label: item,
-          data: [notasArte2[key],notasEdFisica2[key]],
-          backgroundColor: [turmaColors[key], turmaColors[key]],
-          borderColor: "black",
-          borderWidth: 1,
-          datalabels: {
-            color: "black",
-            anchor: "end",
-            align: "top"
-          }
-        }
+        // dataSetsPorTurma7[key] =  {
+        //   label: item,
+        //   data: [notasArte2[key],notasEdFisica2[key]],
+        //   backgroundColor: [turmaColors[key], turmaColors[key]],
+        //   borderColor: "black",
+        //   borderWidth: 1,
+        //   datalabels: {
+        //     color: "black",
+        //     anchor: "end",
+        //     align: "top"
+        //   }
+        // }
       });
 
       // 3 ANO
@@ -499,12 +499,12 @@ const [userData, setUserData] = useState();
     dadosGraficos?.porTurma.a3.escola[1].matematica.map((i,k)=>{
       notasMatematica3[k] = i.nota;
     });
-    dadosGraficos?.porTurma.a3.escola[2].arte.map((i,k)=>{
-      notasArte3[k] = i.nota;
-    });    
-    dadosGraficos?.porTurma.a3.escola[3].edFisica.map((i,k)=>{
-      notasEdFisica3[k] = i.nota;
-    });
+    // dadosGraficos?.porTurma.a3.escola[2].arte.map((i,k)=>{
+    //   notasArte3[k] = i.nota;
+    // });    
+    // dadosGraficos?.porTurma.a3.escola[3].edFisica.map((i,k)=>{
+    //   notasEdFisica3[k] = i.nota;
+    // });
 
       rotulo3.map((item,key)=>{
         dataSetsPorTurma3[key] =  {
@@ -519,18 +519,18 @@ const [userData, setUserData] = useState();
               align: "top"
             }
           }
-          dataSetsPorTurma8[key] =  {
-            label: item,
-            data: [notasArte3[key],notasEdFisica3[key]],
-            backgroundColor: [turmaColors[key], turmaColors[key]],
-            borderColor: "black",
-            borderWidth: 1,
-            datalabels: {
-              color: "black",
-              anchor: "end",
-              align: "top"
-            }
-          }
+          // dataSetsPorTurma8[key] =  {
+          //   label: item,
+          //   data: [notasArte3[key],notasEdFisica3[key]],
+          //   backgroundColor: [turmaColors[key], turmaColors[key]],
+          //   borderColor: "black",
+          //   borderWidth: 1,
+          //   datalabels: {
+          //     color: "black",
+          //     anchor: "end",
+          //     align: "top"
+          //   }
+          // }
       });
 
       // 4 ANOS 
@@ -546,12 +546,12 @@ const [userData, setUserData] = useState();
     dadosGraficos?.porTurma.a4.escola[1].matematica.map((i,k)=>{
       notasMatematica4[k] = i.nota;
     });
-    dadosGraficos?.porTurma.a4.escola[2].arte.map((i,k)=>{
-      notasArte4[k] = i.nota;
-    });    
-    dadosGraficos?.porTurma.a4.escola[3].edFisica.map((i,k)=>{
-      notasEdFisica4[k] = i.nota;
-    });
+    // dadosGraficos?.porTurma.a4.escola[2].arte.map((i,k)=>{
+    //   notasArte4[k] = i.nota;
+    // });    
+    // dadosGraficos?.porTurma.a4.escola[3].edFisica.map((i,k)=>{
+    //   notasEdFisica4[k] = i.nota;
+    // });
 
       rotulo4.map((item,key)=>{
         dataSetsPorTurma4[key] =  {
@@ -566,18 +566,18 @@ const [userData, setUserData] = useState();
               align: "top"
             }
           }
-          dataSetsPorTurma9[key] =  {
-            label: item,
-            data: [notasArte4[key],notasEdFisica4[key]],
-            backgroundColor: [turmaColors[key], turmaColors[key]],
-            borderColor: "black",
-            borderWidth: 1,
-            datalabels: {
-              color: "black",
-              anchor: "end",
-              align: "top"
-            }
-          }
+          // dataSetsPorTurma9[key] =  {
+          //   label: item,
+          //   data: [notasArte4[key],notasEdFisica4[key]],
+          //   backgroundColor: [turmaColors[key], turmaColors[key]],
+          //   borderColor: "black",
+          //   borderWidth: 1,
+          //   datalabels: {
+          //     color: "black",
+          //     anchor: "end",
+          //     align: "top"
+          //   }
+          // }
       });
 
 // 5 ANOS
@@ -593,12 +593,12 @@ const [userData, setUserData] = useState();
     dadosGraficos?.porTurma.a5.escola[1].matematica.map((i,k)=>{
       notasMatematica5[k] = i.nota;
     });
-    dadosGraficos?.porTurma.a5.escola[2].arte.map((i,k)=>{
-      notasArte5[k] = i.nota;
-    });    
-    dadosGraficos?.porTurma.a5.escola[3].edFisica.map((i,k)=>{
-      notasEdFisica5[k] = i.nota;
-    });
+    // dadosGraficos?.porTurma.a5.escola[2].arte.map((i,k)=>{
+    //   notasArte5[k] = i.nota;
+    // });    
+    // dadosGraficos?.porTurma.a5.escola[3].edFisica.map((i,k)=>{
+    //   notasEdFisica5[k] = i.nota;
+    // });
 
       rotulo5.map((item,key)=>{
         dataSetsPorTurma5[key] = {
@@ -613,18 +613,18 @@ const [userData, setUserData] = useState();
               align: "top"
             }
           }
-          dataSetsPorTurma10[key] =  {
-            label: item,
-            data: [notasArte5[key],notasEdFisica5[key]],
-            backgroundColor: [turmaColors[key], turmaColors[key]],
-            borderColor: "black",
-            borderWidth: 1,
-            datalabels: {
-              color: "black",
-              anchor: "end",
-              align: "top"
-            }
-          }
+          // dataSetsPorTurma10[key] =  {
+          //   label: item,
+          //   data: [notasArte5[key],notasEdFisica5[key]],
+          //   backgroundColor: [turmaColors[key], turmaColors[key]],
+          //   borderColor: "black",
+          //   borderWidth: 1,
+          //   datalabels: {
+          //     color: "black",
+          //     anchor: "end",
+          //     align: "top"
+          //   }
+          // }
       });
       
       
@@ -1238,146 +1238,146 @@ const [userData, setUserData] = useState();
     setChartMatematica2(tempMat2);
 
 // ARTE
-let tempArt = [];
+// let tempArt = [];
 
-dadosGraficos?.porQuestao.arte.map((o, k) => {
-  // tempTurma[k] = [o.turma];
-  let NotaRede = [
-    {
-      id: 1,
-      turma: "Q01",
-      nota: o.acertos.q1.escola,
-      media: o.acertos.q1.rede,
-    },
-    {
-      id: 2,
-      turma: "Q02",
-      nota: o.acertos.q2.escola,
-      media: o.acertos.q2.rede,
-    },
-    {
-      id: 3,
-      turma: "Q03",
-      nota: o.acertos.q3.escola,
-      media: o.acertos.q3.rede,
-    }
-    ]
+// dadosGraficos?.porQuestao.arte.map((o, k) => {
+//   // tempTurma[k] = [o.turma];
+//   let NotaRede = [
+//     {
+//       id: 1,
+//       turma: "Q01",
+//       nota: o.acertos.q1.escola,
+//       media: o.acertos.q1.rede,
+//     },
+//     {
+//       id: 2,
+//       turma: "Q02",
+//       nota: o.acertos.q2.escola,
+//       media: o.acertos.q2.rede,
+//     },
+//     {
+//       id: 3,
+//       turma: "Q03",
+//       nota: o.acertos.q3.escola,
+//       media: o.acertos.q3.rede,
+//     }
+//     ]
 
-  tempArt[k] = {
-        labels: NotaRede.map((item) => item.turma),
-        datasets: [
-          {
-            label: 'UNIDADE',
-            data: NotaRede.map((data) => data.nota),
-            // backgroundColor: "#0000ff",
-            backgroundColor: NotaRede.map((data) => {
-              if (data.nota < 70) {
-                if (data.nota < 50) {
-                  return "#e7402d";
-                } else {
-                  return "#fdc719";
-                }
-              } else {
-                return "#75b52b";
-              }
-            }),
-            borderColor: "black",
-            borderWidth: 1,
-            barThickness: 25,
-            datalabels: {
-              color: "black",
-              anchor: "end",
-              align: "top"
-            }
-          },
-          {
-            label: 'REDE',
-            data: NotaRede.map((data) => data.media),
-            backgroundColor: "#c4c4c4",
-            borderColor: "black",
-            borderWidth: 1,
-            barThickness: 25,
-            datalabels: {
-              color: "black",
-              anchor: "end",
-              align: "top"
-            }
-          }
-        ]
-      };
-});
-setChartArte(tempArt);
+//   tempArt[k] = {
+//         labels: NotaRede.map((item) => item.turma),
+//         datasets: [
+//           {
+//             label: 'UNIDADE',
+//             data: NotaRede.map((data) => data.nota),
+//             // backgroundColor: "#0000ff",
+//             backgroundColor: NotaRede.map((data) => {
+//               if (data.nota < 70) {
+//                 if (data.nota < 50) {
+//                   return "#e7402d";
+//                 } else {
+//                   return "#fdc719";
+//                 }
+//               } else {
+//                 return "#75b52b";
+//               }
+//             }),
+//             borderColor: "black",
+//             borderWidth: 1,
+//             barThickness: 25,
+//             datalabels: {
+//               color: "black",
+//               anchor: "end",
+//               align: "top"
+//             }
+//           },
+//           {
+//             label: 'REDE',
+//             data: NotaRede.map((data) => data.media),
+//             backgroundColor: "#c4c4c4",
+//             borderColor: "black",
+//             borderWidth: 1,
+//             barThickness: 25,
+//             datalabels: {
+//               color: "black",
+//               anchor: "end",
+//               align: "top"
+//             }
+//           }
+//         ]
+//       };
+// });
+// setChartArte(tempArt);
 
 // ED. FÍSICA
-let tempEdF = [];
+// let tempEdF = [];
 
-dadosGraficos?.porQuestao.edFisica.map((o, k) => {
-  // tempTurma[k] = [o.turma];
-  let NotaRede = [
-    {
-      id: 1,
-      turma: "Q01",
-      nota: o.acertos.q1.escola,
-      media: o.acertos.q1.rede,
-    },
-    {
-      id: 2,
-      turma: "Q02",
-      nota: o.acertos.q2.escola,
-      media: o.acertos.q2.rede,
-    },
-    {
-      id: 3,
-      turma: "Q03",
-      nota: o.acertos.q3.escola,
-      media: o.acertos.q3.rede,
-    }
-    ]
+// dadosGraficos?.porQuestao.edFisica.map((o, k) => {
+//   // tempTurma[k] = [o.turma];
+//   let NotaRede = [
+//     {
+//       id: 1,
+//       turma: "Q01",
+//       nota: o.acertos.q1.escola,
+//       media: o.acertos.q1.rede,
+//     },
+//     {
+//       id: 2,
+//       turma: "Q02",
+//       nota: o.acertos.q2.escola,
+//       media: o.acertos.q2.rede,
+//     },
+//     {
+//       id: 3,
+//       turma: "Q03",
+//       nota: o.acertos.q3.escola,
+//       media: o.acertos.q3.rede,
+//     }
+//     ]
 
-    tempEdF[k] = {
-        labels: NotaRede.map((item) => item.turma),
-        datasets: [
-          {
-            label: 'UNIDADE',
-            data: NotaRede.map((data) => data.nota),
-            // backgroundColor: "#0000ff",
-            backgroundColor: NotaRede.map((data) => {
-              if (data.nota < 70) {
-                if (data.nota < 50) {
-                  return "#e7402d";
-                } else {
-                  return "#fdc719";
-                }
-              } else {
-                return "#75b52b";
-              }
-            }),
-            borderColor: "black",
-            borderWidth: 1,
-            barThickness: 25,
-            datalabels: {
-              color: "black",
-              anchor: "end",
-              align: "top"
-            }
-          },
-          {
-            label: 'REDE',
-            data: NotaRede.map((data) => data.media),
-            backgroundColor: "#c4c4c4",
-            borderColor: "black",
-            borderWidth: 1,
-            barThickness: 25,
-            datalabels: {
-              color: "black",
-              anchor: "end",
-              align: "top"
-            }
-          }
-        ]
-      };
-});
-setChartEdFisica(tempEdF);
+//     tempEdF[k] = {
+//         labels: NotaRede.map((item) => item.turma),
+//         datasets: [
+//           {
+//             label: 'UNIDADE',
+//             data: NotaRede.map((data) => data.nota),
+//             // backgroundColor: "#0000ff",
+//             backgroundColor: NotaRede.map((data) => {
+//               if (data.nota < 70) {
+//                 if (data.nota < 50) {
+//                   return "#e7402d";
+//                 } else {
+//                   return "#fdc719";
+//                 }
+//               } else {
+//                 return "#75b52b";
+//               }
+//             }),
+//             borderColor: "black",
+//             borderWidth: 1,
+//             barThickness: 25,
+//             datalabels: {
+//               color: "black",
+//               anchor: "end",
+//               align: "top"
+//             }
+//           },
+//           {
+//             label: 'REDE',
+//             data: NotaRede.map((data) => data.media),
+//             backgroundColor: "#c4c4c4",
+//             borderColor: "black",
+//             borderWidth: 1,
+//             barThickness: 25,
+//             datalabels: {
+//               color: "black",
+//               anchor: "end",
+//               align: "top"
+//             }
+//           }
+//         ]
+//       };
+// });
+// setChartEdFisica(tempEdF);
 
 
     setTurmasArray(tempTurma);
@@ -1418,8 +1418,8 @@ setChartEdFisica(tempEdF);
         {/* DESCOMENTAR ABAIXO GRÁFICO 3 - POR QUESTÃO */}
         {chartLinguagens && <QuestionsChart chartData={chartLinguagens} chartData2={chartLinguagens2} turmas={turmasArray} escola={escola} />}
         {chartMatematica && <QuestionsChartMat chartData={chartMatematica} chartData2={chartMatematica2} turmas={turmasArray} escola={escola} />}
-        {chartArte && <QuestionsChartArt chartData={chartArte} turmas={turmasArray} escola={escola} />}
-        {chartEdFisica && <QuestionsChartEdF chartData={chartEdFisica} turmas={turmasArray} escola={escola} />}
+        {/* {chartArte && <QuestionsChartArt chartData={chartArte} turmas={turmasArray} escola={escola} />}
+        {chartEdFisica && <QuestionsChartEdF chartData={chartEdFisica} turmas={turmasArray} escola={escola} />} */}
         
       </div>
       {/* <div style={{ width: 700 }}>
