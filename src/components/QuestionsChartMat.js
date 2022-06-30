@@ -67,7 +67,7 @@ function QuestionsChartMat({ chartData, chartData2, turmas, escola }) {
   }, []);
 
   dadosGrafico?.map((obj, k) => {
-    filename[k] = `${escola}grafico03_${turmas[k]}_matematica_1.png`;
+    filename[k] = `/EJA/${escola}EJA/${escola}grafico03_${turmas[k]}_matematica_1.png`;
     options[k] = {
       maintainAspectRatio: false,
 
@@ -154,9 +154,11 @@ function QuestionsChartMat({ chartData, chartData2, turmas, escola }) {
 
   return (
     <div>
-      <button type="button" onClick={downloadImage}>
-        Download 04
-      </button>
+      <div style={{width:"100%", display: "flex", flexDirection: "row", alignItems: "flex-end", justifyContent:"flex-end", backgroundColor: "green"}}>
+        <button type="button" onClick={downloadImage}>
+          Download 04
+        </button>
+      </div>
       {dadosGrafico?.map((obj, k) => {
         return (
           <div>

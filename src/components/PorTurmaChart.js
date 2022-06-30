@@ -31,8 +31,8 @@ function PorTurmaChart({
         data: objB64,
         filename:
           key <= 4
-            ? `${escola}grafico02_${key + 1}termos.png`
-            : `${escola}grafico02_${key - 4}termos_2.png`,
+            ? `/EJA/${escola}EJA/${escola}grafico02_${key + 1}termos.png`
+            : `/EJA/${escola}EJA/${escola}grafico02_${key - 4}termos_2.png`,
       };
       enviaGrafico({
         data: dataObject,
@@ -208,9 +208,11 @@ function PorTurmaChart({
 
   return (
     <div>
-      <button type="button" onClick={downloadImage}>
-        Download 02
-      </button>
+      <div style={{width:"100%", display: "flex", flexDirection: "row", alignItems: "flex-end", justifyContent:"flex-end", backgroundColor: "green"}}>
+        <button type="button" onClick={downloadImage}>
+          Download 02
+        </button>
+      </div>
       {objPorTurma.datasets.length > 1 && (
         <div
           class="chart-container"

@@ -18,7 +18,7 @@ function BarChart({ chartData, escola }) {
       const objB64 = item.toBase64Image();
       const dataObject = {
         data: objB64,
-        filename: `${escola}grafico01_${key + 1}termos.png`,
+        filename: `/EJA/${escola}EJA/${escola}grafico01_${key + 1}termos.png`,
       };
       enviaGrafico({
         data: dataObject,
@@ -91,9 +91,11 @@ function BarChart({ chartData, escola }) {
 
   return (
     <div>
-      <button type="button" onClick={downloadImage}>
-        Download 01
-      </button>
+      <div style={{width:"100%", display: "flex", flexDirection: "row", alignItems: "flex-end", justifyContent:"flex-end", backgroundColor: "green"}}>
+        <button type="button" onClick={downloadImage}>
+          Download 01
+        </button>
+      </div>
       {chartData[0].datasets[0].data[0] && (
         <div
           class="chart-container"
