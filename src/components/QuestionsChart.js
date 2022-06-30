@@ -67,7 +67,7 @@ function QuestionsChart({ chartData, chartData2, turmas, escola }) {
   }, []);
 
   dadosGrafico?.map((obj, k) => {
-    filename[k] = `${escola}grafico03_${turmas[k]}_linguagens_1.png`;
+    filename[k] = `/Fundamental/${escola}/${escola}grafico03_${turmas[k]}_linguagens_1.png`;
     options[k] = {
       maintainAspectRatio: false,
 
@@ -112,7 +112,7 @@ function QuestionsChart({ chartData, chartData2, turmas, escola }) {
   });
 
   dadosGrafico2?.map((obj, k) => {
-    filename2[k] = `${escola}grafico03_${turmas[k]}_linguagens_2.png`;
+    filename2[k] = `/Fundamental/${escola}/${escola}grafico03_${turmas[k]}_linguagens_2.png`;
     options2[k] = {
       maintainAspectRatio: false,
       plugins: {

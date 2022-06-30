@@ -31,8 +31,8 @@ function PorTurmaChart({
         data: objB64,
         filename:
           key <= 4
-            ? `${escola}grafico02_${key + 1}anos.png`
-            : `${escola}grafico02_${key - 4}anos_2.png`,
+            ? `/Fundamental/${escola}/${escola}grafico02_${key + 1}anos.png`
+            : `/Fundamental/${escola}/${escola}grafico02_${key - 4}anos_2.png`,
       };
       enviaGrafico({
         data: dataObject,
