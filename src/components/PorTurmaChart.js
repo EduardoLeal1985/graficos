@@ -208,9 +208,11 @@ function PorTurmaChart({
 
   return (
     <div>
-      <button type="button" onClick={downloadImage}>
-        Download
-      </button>
+      <div style={{width:"100%", backgroundColor:"green", display: "flex", alignItems: "flex-end", justifyContent:"flex-end", flexDirection:"row"}}>
+        <button type="button" onClick={downloadImage}>
+          Download 02
+        </button>
+      </div>
       {objPorTurma.datasets.length > 1 && (
         <div
           class="chart-container"

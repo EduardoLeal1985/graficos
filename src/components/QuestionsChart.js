@@ -154,9 +154,11 @@ function QuestionsChart({ chartData, chartData2, turmas, escola }) {
 
   return (
     <div>
-      <button type="button" onClick={downloadImage}>
-        Download
-      </button>
+      <div style={{width:"100%", backgroundColor:"green", display: "flex", alignItems: "flex-end", justifyContent:"flex-end", flexDirection:"row"}}>
+        <button type="button" onClick={downloadImage}>
+          Download 03
+        </button>
+      </div>
       {dadosGrafico?.map((obj, k) => {
         return (
           <div>

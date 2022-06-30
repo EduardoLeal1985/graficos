@@ -91,9 +91,11 @@ function BarChart({ chartData, escola }) {
 
   return (
     <div>
-      <button type="button" onClick={downloadImage}>
-        Download
-      </button>
+      <div style={{width:"100%", backgroundColor:"green", display: "flex", alignItems: "flex-end", justifyContent:"flex-end", flexDirection:"row"}}>
+        <button type="button" onClick={downloadImage}>
+          Download 01
+        </button>
+      </div>
       {chartData[0].datasets[0].data[0] && (
         <div
           class="chart-container"

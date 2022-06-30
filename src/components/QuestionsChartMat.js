@@ -112,7 +112,7 @@ function QuestionsChartMat({ chartData, chartData2, turmas, escola }) {
   });
 
   dadosGrafico2?.map((obj, k) => {
-    filename2[k] = `grafico03_${turmas[k]}_matematica_2.png`;
+    filename2[k] = `${escola}grafico03_${turmas[k]}_matematica_2.png`;
     options2[k] = {
       maintainAspectRatio: false,
       plugins: {
@@ -154,9 +154,11 @@ function QuestionsChartMat({ chartData, chartData2, turmas, escola }) {
 
   return (
     <div>
-      <button type="button" onClick={downloadImage}>
-        Download
-      </button>
+      <div style={{width:"100%", backgroundColor:"green", display: "flex", alignItems: "flex-end", justifyContent:"flex-end", flexDirection:"row"}}>
+        <button type="button" onClick={downloadImage}>
+          Download 04
+        </button>
+      </div>
       {dadosGrafico?.map((obj, k) => {
         return (
           <div>
