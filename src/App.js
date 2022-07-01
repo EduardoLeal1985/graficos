@@ -50,6 +50,7 @@ function App() {
   const [dadosGraficos, setDadosGraficos] = useState();
   const [dadosUsuarios, setDadosUsuarios] = useState();
   const [turmasArray, setTurmasArray] = useState();
+  const [turmasArrayMat, setTurmasArrayMat] = useState();
 
   // const dataGraficos = [
   //     {
@@ -1019,9 +1020,10 @@ const [userData, setUserData] = useState();
     // MATEMATICA
     let tempMat = [];
     let tempMat2= [];
+    let tempTurmaMat = [];
 
     dadosGraficos?.porQuestao.matematica.map((o, k) => {
-      // tempTurma[k] = [o.turma];
+      tempTurmaMat[k] = [o.turma];
       let NotaRede = [
         {
           id: 1,
@@ -1393,6 +1395,7 @@ let tempEdF = [];
 
 
     setTurmasArray(tempTurma);
+    setTurmasArrayMat(tempTurmaMat);
 
     
   },[dadosGraficos])
@@ -1429,7 +1432,7 @@ let tempEdF = [];
       <div style={{ width: 900 }}>
         {/* DESCOMENTAR ABAIXO GRÁFICO 3 - POR QUESTÃO */}
         {chartLinguagens && <QuestionsChart chartData={chartLinguagens} turmas={turmasArray} escola={escola} />}
-        {chartMatematica && <QuestionsChartMat chartData={chartMatematica} turmas={turmasArray} escola={escola} />}
+        {chartMatematica && <QuestionsChartMat chartData={chartMatematica} turmas={turmasArrayMat} escola={escola} />}
         
         {/* 2 BIMESTRE NÃO TEM MAIS ARTE E ED FÍSICA NA AVALIAÇÃO */}
         {/* {chartArte && <QuestionsChartArt chartData={chartArte} turmas={turmasArray} escola={escola} />}
